@@ -1,5 +1,5 @@
 'use client'
-import { TodosWidget } from "@/components";
+import { TodoList } from "@/components";
 import { Header } from "@/shared/components";
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
       <main className="flex-grow">
         <div className="w-full h-full flex justify-center p-8">
           <div className="w-1/3 h-1/2">
-            <TodosWidget />
+            <TodoList />
           </div>
         </div>
       </main>
