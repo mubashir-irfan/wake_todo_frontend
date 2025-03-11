@@ -2,29 +2,183 @@
   "tasks": [
     {
       "id": 1,
-      "text": "Buy groceries",
+      "text": "Task 1",
       "completed": false,
       "deleted": true,
       "createdAt": "2025-02-03T12:00:00Z"
     },
     {
       "id": 2,
-      "text": "Complete the React project",
-      "completed": false,
+      "text": "Task 2",
+      "completed": true,
       "deleted": false,
       "createdAt": "2025-02-03T13:00:00Z"
     },
     {
       "id": 3,
-      "text": "Read a book",
+      "text": "Task 3",
+      "completed": false,
+      "deleted": true,
+      "createdAt": "2025-02-03T14:00:00Z"
+    },
+    {
+      "id": 4,
+      "text": "Task 4",
       "completed": true,
       "deleted": false,
-      "createdAt": "2025-02-03T14:00:00Z"
+      "createdAt": "2025-02-03T15:00:00Z"
+    },
+    {
+      "id": 5,
+      "text": "Task 5",
+      "completed": false,
+      "deleted": false,
+      "createdAt": "2025-02-03T16:00:00Z"
+    },
+    {
+      "id": 6,
+      "text": "Task 6",
+      "completed": true,
+      "deleted": false,
+      "createdAt": "2025-02-03T17:00:00Z"
+    },
+    {
+      "id": 7,
+      "text": "Task 7",
+      "completed": false,
+      "deleted": false,
+      "createdAt": "2025-02-03T18:00:00Z"
+    },
+    {
+      "id": 8,
+      "text": "Task 8",
+      "completed": true,
+      "deleted": false,
+      "createdAt": "2025-02-03T19:00:00Z"
+    },
+    {
+      "id": 9,
+      "text": "Task 9",
+      "completed": false,
+      "deleted": false,
+      "createdAt": "2025-02-03T20:00:00Z"
+    },
+    {
+      "id": 10,
+      "text": "Task 10",
+      "completed": true,
+      "deleted": false,
+      "createdAt": "2025-02-03T21:00:00Z"
+    },
+    {
+      "id": 11,
+      "text": "Task 11",
+      "completed": false,
+      "deleted": false,
+      "createdAt": "2025-02-03T22:00:00Z"
+    },
+    {
+      "id": 12,
+      "text": "Task 12",
+      "completed": true,
+      "deleted": false,
+      "createdAt": "2025-02-03T23:00:00Z"
+    },
+    {
+      "id": 13,
+      "text": "Task 13",
+      "completed": false,
+      "deleted": false,
+      "createdAt": "2025-02-04T00:00:00Z"
+    },
+    {
+      "id": 14,
+      "text": "Task 14",
+      "completed": true,
+      "deleted": false,
+      "createdAt": "2025-02-04T01:00:00Z"
+    },
+    {
+      "id": 15,
+      "text": "Task 15",
+      "completed": false,
+      "deleted": false,
+      "createdAt": "2025-02-04T02:00:00Z"
+    },
+    {
+      "id": 16,
+      "text": "Task 16",
+      "completed": true,
+      "deleted": false,
+      "createdAt": "2025-02-04T03:00:00Z"
+    },
+    {
+      "id": 17,
+      "text": "Task 17",
+      "completed": false,
+      "deleted": false,
+      "createdAt": "2025-02-04T04:00:00Z"
+    },
+    {
+      "id": 18,
+      "text": "Task 18",
+      "completed": true,
+      "deleted": false,
+      "createdAt": "2025-02-04T05:00:00Z"
+    },
+    {
+      "id": 19,
+      "text": "Task 19",
+      "completed": false,
+      "deleted": false,
+      "createdAt": "2025-02-04T06:00:00Z"
+    },
+    {
+      "id": 20,
+      "text": "Task 20",
+      "completed": true,
+      "deleted": false,
+      "createdAt": "2025-02-04T07:00:00Z"
+    },
+    {
+      "id": 21,
+      "text": "Task 21",
+      "completed": false,
+      "deleted": false,
+      "createdAt": "2025-02-04T08:00:00Z"
+    },
+    {
+      "id": 22,
+      "text": "Task 22",
+      "completed": true,
+      "deleted": false,
+      "createdAt": "2025-02-04T09:00:00Z"
+    },
+    {
+      "id": 23,
+      "text": "Task 23",
+      "completed": false,
+      "deleted": false,
+      "createdAt": "2025-02-04T10:00:00Z"
+    },
+    {
+      "id": 24,
+      "text": "Task 24",
+      "completed": true,
+      "deleted": false,
+      "createdAt": "2025-02-04T11:00:00Z"
+    },
+    {
+      "id": 25,
+      "text": "Task 25",
+      "completed": false,
+      "deleted": false,
+      "createdAt": "2025-02-04T12:00:00Z"
     }
   ],
   "counts": {
-    "uncompleted": 1,
-    "completed": 1,
-    "deleted": 1
+    "uncompleted": 11,
+    "completed": 12,
+    "deleted": 2
   }
 }
