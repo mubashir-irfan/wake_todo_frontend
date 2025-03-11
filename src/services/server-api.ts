@@ -1,3 +1,4 @@
+// src/lib/api/ServerAPI.ts
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 const instance = axios.create({
@@ -13,15 +14,15 @@ export const ServerAPI = {
     return instance.get<T>(url, config);
   },
 
-  post: async <T>(url: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> => {
+  post: async <T, U>(url: string, data?: U, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> => {
     return instance.post<T>(url, data, config);
   },
 
-  put: async <T>(url: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> => {
+  put: async <T, U>(url: string, data?: U, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> => {
     return instance.put<T>(url, data, config);
   },
 
-  patch: async <T>(url: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> => {
+  patch: async <T, U>(url: string, data?: U, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> => {
     return instance.patch<T>(url, data, config);
   },
 
