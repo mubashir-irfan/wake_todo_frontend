@@ -40,7 +40,7 @@ const TodoList: React.FC = () => {
 
   useEffect(() => {
     fetchTasks();
-  }, [currentPage]);
+  }, [currentPage, fetchCounts]);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);

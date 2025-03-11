@@ -2,7 +2,7 @@
   "HomePage": {
     "title": "قائمة المهام",
     "addTask": "إضافة مهمة",
-    "uncompleted": "غير مكتملة",
+    "incomplete": "غير مكتملة",
     "completed": "مكتملة",
     "deleted": "محذوفة",
     "save": "حفظ",

@@ -2,7 +2,7 @@
   "HomePage": {
     "title": "The Todo",
     "addTask": "Add Task",
-    "uncompleted": "Uncompleted",
+    "incomplete": "Incomplete",
     "completed": "Completed",
     "deleted": "Deleted",
     "save": "Save",

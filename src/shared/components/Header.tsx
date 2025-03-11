@@ -1,12 +1,12 @@
 
 'use client';
+import { TaskModal } from "@/components";
+import useStore from "@/store/useStore";
+import { useTranslations } from 'next-intl';
+import { useEffect, useState } from "react";
 import { FaCheckDouble } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
-import { useTranslations } from 'next-intl';
-import useStore from "@/store/useStore";
-import { Button, Icon, CountBadge } from ".";
-import { useEffect, useState } from "react";
-import { TaskModal } from "@/components";
+import { Button, CountBadge, Icon } from ".";
 
 const Header = () => {
   const t = useTranslations('HomePage');
@@ -35,9 +35,9 @@ const Header = () => {
         </div>
         <div className='flex gap-lg'>
           <div className='flex gap-2 p-2 border-r border-solid border-border-light '>
-            <CountBadge count={uncompleted} textColor='text-white' bgColor='bg-purple-500' />
-            <CountBadge count={completed} textColor='text-black' bgColor='bg-green-500' />
-            <CountBadge count={deleted} textColor='text-white' bgColor='bg-red-500' />
+            <CountBadge count={uncompleted} textColor='text-white' bgColor='bg-purple-500' title={t('incomplete')} />
+            <CountBadge count={completed} textColor='text-black' bgColor='bg-green-500' title={t('completed')} />
+            <CountBadge count={deleted} textColor='text-white' bgColor='bg-red-500' title={t('deleted')} />
           </div>
           <Button icon={<FaPlus size={16} />} onClick={onAddTask}>{t('addTask')}</Button>
         </div>
