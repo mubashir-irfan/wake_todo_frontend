@@ -1,6 +1,7 @@
-import { Pagination, Task, TaskCounts } from '@/types';
+import { NewTaskPayload, Pagination, Task, TaskCounts } from '@/types';
 import { APIEndpoints } from '@/utils';
 import { ServerAPI as api } from '.';
+import useStore from '@/store/useStore';
 
 const taskEndpoints = APIEndpoints.task;
 const allTasksEndpoints = APIEndpoints.tasks;
@@ -17,8 +18,11 @@ const TasksService = {
     return response.data;
   },
 
-  addTask: async (task: Task) => {
-    const response = await api.post<Task, Task>(taskEndpoints.create(), task);
+  addTask: async (task: NewTaskPayload) => {
+    const response = await api.post<Task, NewTaskPayload>(taskEndpoints.create(), task);
+    if (response.status === 201) {
+      useStore.getState().fetchCounts();
+    }
     return response.data;
   },
 

@@ -5,10 +5,21 @@ import { FaPlus } from "react-icons/fa6";
 import { useTranslations } from 'next-intl';
 import useStore from "@/store/useStore";
 import { Button, Icon, CountBadge } from ".";
+import { useState } from "react";
+import { TaskModal } from "@/components";
 
 const Header = () => {
   const t = useTranslations('HomePage');
+  const [isTaskModalOpen, setIsTaskModalOpen] = useState<boolean>(false);
   const { uncompleted, deleted, completed } = useStore();
+
+  const onAddTask = () => {
+    setIsTaskModalOpen(true);
+  }
+
+  const onCloseTaskModal = () => {
+    setIsTaskModalOpen(false);
+  }
 
   return (
     <header className="bg-background-light-secondary dark:bg-background-dark-secondary lg:border-b lg:border-border-light border-solid dark:border-0">
@@ -23,9 +34,11 @@ const Header = () => {
             <CountBadge count={deleted} textColor='text-text-white' bgColor='bg-accent-red' />
             <CountBadge count={completed} textColor='text-text-dark' bgColor='bg-accent-green' />
           </div>
-          <Button icon={<FaPlus size={16} />}>{t('addTask')}</Button>
+          <Button icon={<FaPlus size={16} />} onClick={onAddTask}>{t('addTask')}</Button>
         </div>
       </div>
+
+      <TaskModal isOpen={isTaskModalOpen} onClose={onCloseTaskModal} />
     </header>
   );
 };

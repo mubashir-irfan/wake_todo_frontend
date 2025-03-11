@@ -45,7 +45,19 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  --color-wakecap: var(--wakecap);
+  /* app theme variables
+   --bg-control-primary: oklch(0% 0.000 2);
+  --bg-control-secondary: oklch(100.00000000000003% 0.000 1);
+  --text-control-primary: oklch(100.00000000000003% 0.000 1);
+  --text-control-secondary: oklch(0% 0.000 2);
+  
+  */
+  --color-bg-control-primary: var(--bg-control-primary);
+  --color-bg-control-secondary: var(--bg-control-secondary);
+  --color-text-control-primary: var(--text-control-primary);
+  --color-text-control-secondary: var(--text-control-secondary);
+
+  --color-text-primary: var(--text-primary);
 }
 
 :root {
@@ -83,7 +95,16 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
-  --wakecap: oklch(85% 0.338 143);
+  /* app vars */
+
+  /* UI control colors */
+  --bg-control-primary: oklch(0% 0.000 2);
+  --bg-control-secondary: oklch(100.00000000000003% 0.000 1);
+  --text-control-primary: oklch(100.00000000000003% 0.000 1);
+  --text-control-secondary: oklch(0% 0.000 2);
+
+  /*text-colors*/
+  --text-primary: oklch(0% 0.000 2);
 }
 
 .dark {
@@ -120,7 +141,7 @@
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
 
-  --wakecap: oklch(48.37244960858909% 0.285 264.05585148551523);
+
 }
 
 @layer base {

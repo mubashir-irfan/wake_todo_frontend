@@ -6,6 +6,8 @@ export type Task = {
   createdAt: string;
 }
 
+export type NewTaskPayload = Pick<Task, 'text' | 'completed' | 'deleted' | 'createdAt'>
+
 export type TaskCounts = { uncompleted: number; completed: number; deleted: number }
 
 export type Pagination = {

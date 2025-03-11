@@ -1,4 +1,5 @@
 // src/stores/useTodoStatsStore.ts
+import { TasksService } from '@/services';
 import { create } from 'zustand';
 
 interface StoreState {
@@ -6,27 +7,13 @@ interface StoreState {
   completed: number;
   deleted: number;
 
-  setUncompleted: (count: number) => void;
-  setCompleted: (count: number) => void;
-  setDeleted: (count: number) => void;
-
-  incrementUncompleted: () => void;
-  incrementCompleted: () => void;
-  incrementDeleted: () => void;
-
-  decrementUncompleted: () => void;
-  decrementCompleted: () => void;
-  decrementDeleted: () => void;
+  fetchCounts: () => Promise<void>
 }
 
-const useTodoStatsStore = create<StoreState>((set) => ({
+const useStore = create<StoreState>((set) => ({
   uncompleted: 0,
   completed: 999,
   deleted: 0,
-
-  setUncompleted: (count) => set({ uncompleted: count }),
-  setCompleted: (count) => set({ completed: count }),
-  setDeleted: (count) => set({ deleted: count }),
 
   incrementUncompleted: () => set((state) => ({ uncompleted: state.uncompleted + 1 })),
   incrementCompleted: () => set((state) => ({ completed: state.completed + 1 })),
@@ -35,6 +22,16 @@ const useTodoStatsStore = create<StoreState>((set) => ({
   decrementUncompleted: () => set((state) => ({ uncompleted: Math.max(0, state.uncompleted - 1) })),
   decrementCompleted: () => set((state) => ({ completed: Math.max(0, state.completed - 1) })),
   decrementDeleted: () => set((state) => ({ deleted: Math.max(0, state.deleted - 1) })),
+
+  fetchCounts: async () => {
+    try {
+      const counts = await TasksService.getTaskCounts();
+      console.log('zustand store, fetchCounts', counts)
+      set({ ...counts });
+    } catch (error) {
+      console.error('Error fetching counts:', error);
+    }
+  },
 }));
 
-export default useTodoStatsStore;
+export default useStore;
