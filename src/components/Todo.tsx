@@ -1,29 +1,37 @@
 import { Task } from "@/types";
-import { FaCheckCircle, FaRegCircle, FaTrash } from "react-icons/fa";
+import { FaCheckCircle, FaTrash } from "react-icons/fa";
 
 interface TodoProps {
   task: Task;
-  onToggleComplete: (id: number) => void;
+  onMarkComplete: (id: number) => void;
+  onMarkIncomplete: (id: number) => void;
   onDelete: (id: number) => void;
+  onDoubleClick: (task: Task) => void;
 }
 
-const Todo: React.FC<TodoProps> = ({ task, onToggleComplete, onDelete }) => {
+const Todo: React.FC<TodoProps> = ({ task, onMarkComplete, onMarkIncomplete, onDelete, onDoubleClick }) => {
   if (task.deleted) return null; // Hide deleted tasks
 
+  const handleComplete = () => {
+    onMarkComplete(task.id);
+  };
+
+  const handleIncomplete = () => {
+    onMarkIncomplete(task.id);
+  };
+
   return (
-    <div className="flex items-center justify-between bg-white p-3 rounded-lg shadow-sm border">
-      {/* Check/Uncheck Button */}
-      <button onClick={() => onToggleComplete(task.id)} className="text-blue-600">
-        {task.completed ? <FaCheckCircle size={20} /> : <FaRegCircle size={20} />}
+    <div className="flex items-center justify-between bg-white p-3 cursor-pointer hover:bg-gray-100" onDoubleClick={() => onDoubleClick(task)}>
+      <button onClick={task.completed ? handleIncomplete : handleComplete} className={`cursor-pointer ${task.completed ? 'text-black-600' : 'opacity-25'} `}>
+        {/* {task.completed ? <FaCheckCircle size={20} /> : <FaRegCircle size={20} />} */}
+        <FaCheckCircle size={20} />
       </button>
 
-      {/* Task Name */}
       <span className={`flex-1 mx-3 ${task.completed ? "line-through text-gray-400" : "text-gray-800"}`}>
         {task.text}
       </span>
 
-      {/* Delete Button */}
-      <button onClick={() => onDelete(task.id)} className="text-red-600 hover:text-red-800">
+      <button onClick={() => onDelete(task.id)} className="text-red-600 hover:text-red-800 cursor-pointer">
         <FaTrash size={20} />
       </button>
     </div>

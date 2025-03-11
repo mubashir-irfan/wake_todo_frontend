@@ -1,36 +1,35 @@
-// src/stores/useTodoStatsStore.ts
 import { TasksService } from '@/services';
+import { Task } from '@/types';
 import { create } from 'zustand';
 
 interface StoreState {
   uncompleted: number;
   completed: number;
   deleted: number;
+  selectedTask: Task | null;
 
-  fetchCounts: () => Promise<void>
+  fetchCounts: () => Promise<void>;
+  setSelectedTask: (selectedTask: Task | null) => void;
 }
 
 const useStore = create<StoreState>((set) => ({
   uncompleted: 0,
-  completed: 999,
+  completed: 0,
   deleted: 0,
-
-  incrementUncompleted: () => set((state) => ({ uncompleted: state.uncompleted + 1 })),
-  incrementCompleted: () => set((state) => ({ completed: state.completed + 1 })),
-  incrementDeleted: () => set((state) => ({ deleted: state.deleted + 1 })),
-
-  decrementUncompleted: () => set((state) => ({ uncompleted: Math.max(0, state.uncompleted - 1) })),
-  decrementCompleted: () => set((state) => ({ completed: Math.max(0, state.completed - 1) })),
-  decrementDeleted: () => set((state) => ({ deleted: Math.max(0, state.deleted - 1) })),
+  selectedTask: null,
 
   fetchCounts: async () => {
     try {
       const counts = await TasksService.getTaskCounts();
-      console.log('zustand store, fetchCounts', counts)
-      set({ ...counts });
+      set(counts);
     } catch (error) {
       console.error('Error fetching counts:', error);
+      set({ uncompleted: 0, completed: 0, deleted: 0 });
     }
+  },
+
+  setSelectedTask: (selectedTask) => {
+    set({ selectedTask });
   },
 }));
 

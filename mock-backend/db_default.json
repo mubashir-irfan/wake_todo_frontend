@@ -1,34 +1,6 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "text": "Task 1",
-      "completed": false,
-      "deleted": false,
-      "createdAt": "2025-02-03T12:00:00Z"
-    },
-    {
-      "id": 2,
-      "text": "Task 2",
-      "completed": true,
-      "deleted": false,
-      "createdAt": "2025-02-03T13:00:00Z"
-    },
-    {
-      "id": 3,
-      "text": "Task 3",
-      "completed": false,
-      "deleted": false,
-      "createdAt": "2025-02-03T14:00:00Z"
-    },
-    {
-      "id": 4,
-      "text": "Task 4",
-      "completed": true,
-      "deleted": false,
-      "createdAt": "2025-02-03T15:00:00Z"
-    },
-    {
       "id": 5,
       "text": "Task 5",
       "completed": false,
@@ -132,53 +104,11 @@
       "completed": false,
       "deleted": false,
       "createdAt": "2025-02-04T06:00:00Z"
-    },
-    {
-      "id": 20,
-      "text": "Task 20",
-      "completed": true,
-      "deleted": false,
-      "createdAt": "2025-02-04T07:00:00Z"
-    },
-    {
-      "id": 21,
-      "text": "Task 21",
-      "completed": false,
-      "deleted": false,
-      "createdAt": "2025-02-04T08:00:00Z"
-    },
-    {
-      "id": 22,
-      "text": "Task 22",
-      "completed": true,
-      "deleted": false,
-      "createdAt": "2025-02-04T09:00:00Z"
-    },
-    {
-      "id": 23,
-      "text": "Task 23",
-      "completed": false,
-      "deleted": false,
-      "createdAt": "2025-02-04T10:00:00Z"
-    },
-    {
-      "id": 24,
-      "text": "Task 24",
-      "completed": true,
-      "deleted": false,
-      "createdAt": "2025-02-04T11:00:00Z"
-    },
-    {
-      "id": 25,
-      "text": "Task 25",
-      "completed": false,
-      "deleted": false,
-      "createdAt": "2025-02-04T12:00:00Z"
     }
   ],
   "counts": {
-    "uncompleted": 13,
-    "completed": 12,
+    "uncompleted": 8,
+    "completed": 7,
     "deleted": 0
   }
 }

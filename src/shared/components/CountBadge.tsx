@@ -17,7 +17,7 @@ const CountBadge: React.FC<CountBadgeProps> = ({
 
   return (
     <span
-      className={`w-6 h-6 p-2 font-bold flex items-center justify-center text-sm rounded-full ${bgColor} ${textColor} ${className} overflow-hidden whitespace-nowrap`}
+      className={`w-6 h-6 p-2 font-bold flex items-center justify-center text-xs rounded-full ${bgColor} ${textColor} ${className} overflow-hidden whitespace-nowrap`}
       aria-label={`Count Badge: ${displayText}`}
       role="img"
     >

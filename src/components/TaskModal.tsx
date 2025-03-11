@@ -13,9 +13,9 @@ const taskSchema = z.object({
 });
 
 interface TaskModalProps {
-  task?: Task;
   isOpen: boolean;
   onClose: () => void;
+  task: Task | null;
 }
 
 function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
@@ -38,7 +38,6 @@ function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
       deleted: false,
       createdAt: getCurrentDateTimeStamp(),
     }
-    console.log('new task payload', newTask)
     TasksService.addTask(newTask).then(() => {
       alert('Task added successfully')
     }).catch((err) => {
@@ -63,8 +62,7 @@ function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
 
   const onSubmit = () => {
     try {
-      const validatedTask = taskSchema.parse({ text });
-      console.log('ZodValidated task:', validatedTask);
+      taskSchema.parse({ text });
       if (task) onUpdateTask();
       else onAddTask();
     } catch (error) {

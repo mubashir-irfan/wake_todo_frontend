@@ -31,10 +31,16 @@ const TasksService = {
     return response.data;
   },
 
-  completeTask: async (id: number) => {
+  markTaskAsComplete: async (id: number) => {
     const response = await api.patch<Task, Partial<Task>>(`${taskEndpoints.update(id)}`, { completed: true });
     return response.data;
   },
+
+  markTaskAsIncomplete: async (id: number) => {
+    const response = await api.patch<Task, Partial<Task>>(`${taskEndpoints.update(id)}`, { completed: false });
+    return response.data;
+  },
+
 
   deleteTask: async (id: number) => {
     await api.delete<Task>(`${taskEndpoints.delete(id)}`);

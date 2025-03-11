@@ -5,13 +5,13 @@ import { FaPlus } from "react-icons/fa6";
 import { useTranslations } from 'next-intl';
 import useStore from "@/store/useStore";
 import { Button, Icon, CountBadge } from ".";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TaskModal } from "@/components";
 
 const Header = () => {
   const t = useTranslations('HomePage');
   const [isTaskModalOpen, setIsTaskModalOpen] = useState<boolean>(false);
-  const { uncompleted, deleted, completed } = useStore();
+  const { uncompleted, deleted, completed, selectedTask, setSelectedTask } = useStore();
 
   const onAddTask = () => {
     setIsTaskModalOpen(true);
@@ -19,7 +19,12 @@ const Header = () => {
 
   const onCloseTaskModal = () => {
     setIsTaskModalOpen(false);
+    setSelectedTask(null)
   }
+
+  useEffect(() => {
+    if (selectedTask) setIsTaskModalOpen(true);
+  }, [selectedTask])
 
   return (
     <header className="bg-background-light-secondary dark:bg-background-dark-secondary lg:border-b lg:border-border-light border-solid dark:border-0">
@@ -30,15 +35,15 @@ const Header = () => {
         </div>
         <div className='flex gap-lg'>
           <div className='flex gap-2 p-2 border-r border-solid border-border-light '>
-            <CountBadge count={uncompleted} textColor='text-text-white' bgColor='bg-accent-purple' />
-            <CountBadge count={deleted} textColor='text-text-white' bgColor='bg-accent-red' />
-            <CountBadge count={completed} textColor='text-text-dark' bgColor='bg-accent-green' />
+            <CountBadge count={uncompleted} textColor='text-white' bgColor='bg-purple-500' />
+            <CountBadge count={completed} textColor='text-black' bgColor='bg-green-500' />
+            <CountBadge count={deleted} textColor='text-white' bgColor='bg-red-500' />
           </div>
           <Button icon={<FaPlus size={16} />} onClick={onAddTask}>{t('addTask')}</Button>
         </div>
       </div>
 
-      <TaskModal isOpen={isTaskModalOpen} onClose={onCloseTaskModal} />
+      <TaskModal isOpen={isTaskModalOpen} onClose={onCloseTaskModal} task={selectedTask} />
     </header>
   );
 };

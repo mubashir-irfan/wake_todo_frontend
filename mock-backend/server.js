@@ -49,7 +49,7 @@ server.use((req, res, next) => {
 // Middleware to handle pagination
 server.use((req, res, next) => {
   if (req.method === "GET" && req.url.startsWith("/tasks")) {
-    const tasks = router.db.get("tasks").value();
+    const tasks = router.db.get("tasks").value().filter(task => !task.deleted);
     const page = parseInt(req.query._page) || 1;
     const limit = parseInt(req.query._limit) || 10;
     const startIndex = (page - 1) * limit;
