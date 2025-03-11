@@ -2,7 +2,6 @@ import { Header } from "@/shared/components";
 import { useTranslations } from 'next-intl';
 
 export default function Home() {
-  const t = useTranslations('HomePage');
   return (
     <div className="h-screen w-screen flex flex-col">
       <Header />
