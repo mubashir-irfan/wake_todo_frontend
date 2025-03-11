@@ -27,7 +27,7 @@ const Header = () => {
   }, [selectedTask])
 
   return (
-    <header className="bg-background-light-secondary dark:bg-background-dark-secondary lg:border-b lg:border-border-light border-solid dark:border-0">
+    <header className="bg-background-light-secondary dark:bg-background-dark-secondary border-b border-border-light border-solid">
       <div className='flex justify-between items-center p-4'>
         <div className='flex gap-4 items-center'>
           <Icon icon={<FaCheckDouble size={24} />} />

@@ -38,8 +38,10 @@ function Modal({
         </DialogHeader>
         <div className="grid gap-4 py-4">{children}</div>
         <DialogFooter>
-          {secondaryButton}
-          {primaryButton}
+          <div className='flex flex-col-reverse sm:flex-row gap-2'>
+            {secondaryButton}
+            {primaryButton}
+          </div>
         </DialogFooter>
       </DialogContent>
     </Dialog>

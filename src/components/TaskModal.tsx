@@ -102,7 +102,7 @@ function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
         </Button>
       }
       secondaryButton={
-        <Button type="button" variant="secondary" onClick={onModalClose} className="ms-2">
+        <Button type="button" variant="secondary" onClick={onModalClose}>
           Cancel
         </Button>
       }

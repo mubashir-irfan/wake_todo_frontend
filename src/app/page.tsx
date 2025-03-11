@@ -9,7 +9,7 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         <div className="w-full h-full flex justify-center p-8">
-          <div className="w-1/3 h-1/2">
+          <div className="w-full h-full lg:w-[40%] lg:h-1/2">
             <TodoList />
           </div>
         </div>

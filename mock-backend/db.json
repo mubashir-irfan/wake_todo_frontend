@@ -104,25 +104,11 @@
       "completed": false,
       "deleted": false,
       "createdAt": "2025-02-04T06:00:00Z"
-    },
-    {
-      "text": "review functionality",
-      "completed": false,
-      "deleted": false,
-      "createdAt": "2025-03-11T17:31:17Z",
-      "id": 16
-    },
-    {
-      "text": "edit:implement i18n",
-      "completed": false,
-      "deleted": true,
-      "createdAt": "2025-03-11T17:32:26Z",
-      "id": 17
     }
   ],
   "counts": {
-    "uncompleted": 13,
+    "uncompleted": 12,
     "completed": 3,
-    "deleted": 1
+    "deleted": 0
   }
 }
