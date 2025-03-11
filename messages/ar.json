@@ -8,6 +8,13 @@
     "save": "حفظ",
     "cancel": "إلغاء",
     "editTask": "تعديل مهمة",
-    "noTasks": "لم يتم العثور على مهام"
+    "noTasks": "لم يتم العثور على مهام",
+    "noTasksFound": "صفحتك فارغة! لنملأها بالإنجازات",
+    "addSomeTasksPrompt": "هل أنت مستعد لإنجاز الأمور؟ هيا بنا نضيف بعض المهام"
+  },
+  "misc": {
+    "next": "التالي",
+    "previous": "السابق",
+    "pageOf": "صفحة  {currentPage} من {totalPages}"
   }
 }

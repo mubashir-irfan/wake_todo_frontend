@@ -8,6 +8,12 @@
     "save": "Save",
     "cancel": "Cancel",
     "editTask": "Edit Task",
-    "noTasks": "No tasks found"
+    "noTasksFound": "Your page is empty! Let's fill it with achievements!",
+    "addSomeTasksPrompt": "Ready to get things done? Let's add some tasks!"
+  },
+  "misc": {
+    "next": "Next",
+    "previous": "Previous",
+    "pageOf": "Page {currentPage} of {totalPages}"
   }
 }

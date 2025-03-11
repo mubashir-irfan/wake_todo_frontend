@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { TasksService } from '@/services';
 import useStore from '@/store/useStore';
 import { Pagination } from '@/shared/components';
+import { TodoListSkeleton, TodoListEmpty } from '@/shared/components/adhoc';
 
 
 const TodoList: React.FC = () => {
@@ -59,6 +60,11 @@ const TodoList: React.FC = () => {
   };
 
   const handleDoubleClickOnTask = (task: Task) => setSelectedTask(task)
+
+
+  if (isLoading) return <TodoListSkeleton />
+
+  if (!tasks.length) return <TodoListEmpty />
 
   return (
     <div className='flex flex-col gap-3' >

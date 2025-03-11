@@ -2,6 +2,7 @@
 
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
+import { useTranslations } from 'next-intl';
 
 interface PaginationProps {
   currentPage: number;
@@ -10,6 +11,9 @@ interface PaginationProps {
 }
 
 const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
+  const t = useTranslations('misc');
+
+
   const handlePrevPage = () => {
     if (currentPage > 1) {
       onPageChange(currentPage - 1);
@@ -22,6 +26,11 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
     }
   };
 
+  const pageOfText = t('pageOf', {
+    currentPage: currentPage,
+    totalPages: totalPages,
+  });
+
   return (
     <div className="flex items-center justify-center space-x-2">
       <Button
@@ -29,14 +38,13 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
         size="icon"
         onClick={handlePrevPage}
         disabled={currentPage === 1}
-        className='cursor-pointer'
       >
         <FaChevronLeft className="h-4 w-4" />
-        <span className="sr-only">Previous</span>
+        <span className="sr-only">{t('previous')}</span>
       </Button>
 
       <span className="text-sm font-medium">
-        Page {currentPage} of {totalPages}
+        {pageOfText}
       </span>
 
       <Button
@@ -44,10 +52,9 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
         size="icon"
         onClick={handleNextPage}
         disabled={currentPage === totalPages}
-        className='cursor-pointer'
       >
         <FaChevronRight className="h-4 w-4" />
-        <span className="sr-only">Next</span>
+        <span className="sr-only">{t('next')}</span>
       </Button>
     </div>
   );

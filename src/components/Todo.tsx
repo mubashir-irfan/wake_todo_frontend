@@ -10,8 +10,6 @@ interface TodoProps {
 }
 
 const Todo: React.FC<TodoProps> = ({ task, onMarkComplete, onMarkIncomplete, onDelete, onDoubleClick }) => {
-  if (task.deleted) return null; // Hide deleted tasks
-
   const handleComplete = () => {
     onMarkComplete(task.id);
   };
@@ -23,11 +21,11 @@ const Todo: React.FC<TodoProps> = ({ task, onMarkComplete, onMarkIncomplete, onD
   return (
     <div className="flex items-center justify-between bg-white p-3 cursor-pointer hover:bg-gray-100" onDoubleClick={() => onDoubleClick(task)}>
       <button onClick={task.completed ? handleIncomplete : handleComplete} className={`cursor-pointer ${task.completed ? 'text-black-600' : 'opacity-25'} `}>
-        {/* {task.completed ? <FaCheckCircle size={20} /> : <FaRegCircle size={20} />} */}
+
         <FaCheckCircle size={20} />
       </button>
 
-      <span className={`flex-1 mx-3 ${task.completed ? "line-through text-gray-400" : "text-gray-800"}`}>
+      <span className={`flex-1 mx-3 text-gray-800 ${task.completed ? "line-through" : ""}`}>
         {task.text}
       </span>
 
