@@ -1,5 +1,4 @@
 import { Header } from "@/shared/components";
-import { useTranslations } from 'next-intl';
 
 export default function Home() {
   return (
