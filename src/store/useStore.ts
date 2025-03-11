@@ -21,7 +21,7 @@ interface StoreState {
 
 const useTodoStatsStore = create<StoreState>((set) => ({
   uncompleted: 0,
-  completed: 0,
+  completed: 999,
   deleted: 0,
 
   setUncompleted: (count) => set({ uncompleted: count }),

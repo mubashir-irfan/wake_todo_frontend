@@ -1,5 +1,13 @@
 {
   "HomePage": {
-    "title": "Hello world but in Arabic"
+    "title": "قائمة المهام",
+    "addTask": "إضافة مهمة",
+    "uncompleted": "غير مكتملة",
+    "completed": "مكتملة",
+    "deleted": "محذوفة",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "editTask": "تعديل مهمة",
+    "noTasks": "لم يتم العثور على مهام"
   }
 }
