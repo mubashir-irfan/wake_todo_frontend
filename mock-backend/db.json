@@ -4,7 +4,7 @@
       "id": 1,
       "text": "Task 1",
       "completed": false,
-      "deleted": true,
+      "deleted": false,
       "createdAt": "2025-02-03T12:00:00Z"
     },
     {
@@ -177,8 +177,8 @@
     }
   ],
   "counts": {
-    "uncompleted": 11,
-    "completed": 12,
-    "deleted": 2
+    "uncompleted": 13,
+    "completed": 11,
+    "deleted": 1
   }
 }

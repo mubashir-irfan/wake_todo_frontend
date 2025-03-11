@@ -1,0 +1,181 @@
+{
+  "info": {
+    "_postman_id": "12345-abcde-67890-fghij",
+    "name": "Todo App API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Tasks (Paginated)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3003/tasks?_page=1&_limit=10",
+          "host": [
+            "http://localhost:3003"
+          ],
+          "path": [
+            "tasks"
+          ],
+          "query": [
+            {
+              "key": "_page",
+              "value": "1"
+            },
+            {
+              "key": "_limit",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "status": "200 OK",
+          "body": "{\n  \"tasks\": [\n    {\n      \"id\": 1,\n      \"text\": \"Buy groceries\",\n      \"completed\": false,\n      \"deleted\": false,\n      \"createdAt\": \"2025-02-03T12:00:00Z\"\n    }\n  ],\n  \"total\": 100,\n  \"page\": 1,\n  \"limit\": 10\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get Task Counts",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3003/counts",
+          "host": [
+            "http://localhost:3003"
+          ],
+          "path": [
+            "counts"
+          ]
+        }
+      },
+      "response": [
+        {
+          "status": "200 OK",
+          "body": "{\n  \"uncompleted\": 2,\n  \"completed\": 1,\n  \"deleted\": 0\n}"
+        }
+      ]
+    },
+    {
+      "name": "Add a New Task",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"text\": \"New task description\", \"completed\": false, \"deleted\": false, \"createdAt\": \"2025-02-03T15:00:00Z\" }"
+        },
+        "url": {
+          "raw": "http://localhost:3003/tasks",
+          "host": [
+            "http://localhost:3003"
+          ],
+          "path": [
+            "tasks"
+          ]
+        }
+      },
+      "response": [
+        {
+          "status": "201 Created",
+          "body": "{\n  \"id\": 4,\n  \"text\": \"New task description\",\n  \"completed\": false,\n  \"deleted\": false,\n  \"createdAt\": \"2025-02-03T15:00:00Z\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Update a Task",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"text\": \"Updated task description\", \"completed\": false, \"deleted\": false, \"createdAt\": \"2025-02-03T12:00:00Z\" }"
+        },
+        "url": {
+          "raw": "http://localhost:3003/tasks/1",
+          "host": [
+            "http://localhost:3003"
+          ],
+          "path": [
+            "tasks",
+            "1"
+          ]
+        }
+      },
+      "response": [
+        {
+          "status": "200 OK",
+          "body": "{\n  \"id\": 1,\n  \"text\": \"Updated task description\",\n  \"completed\": false,\n  \"deleted\": false,\n  \"createdAt\": \"2025-02-03T12:00:00Z\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Mark a Task as Completed",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"completed\": true }"
+        },
+        "url": {
+          "raw": "http://localhost:3003/tasks/1",
+          "host": [
+            "http://localhost:3003"
+          ],
+          "path": [
+            "tasks",
+            "1"
+          ]
+        }
+      },
+      "response": [
+        {
+          "status": "200 OK",
+          "body": "{\n  \"id\": 1,\n  \"text\": \"Buy groceries\",\n  \"completed\": true,\n  \"deleted\": false,\n  \"createdAt\": \"2025-02-03T12:00:00Z\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Delete a Task",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3003/tasks/1",
+          "host": [
+            "http://localhost:3003"
+          ],
+          "path": [
+            "tasks",
+            "1"
+          ]
+        }
+      },
+      "response": [
+        {
+          "status": "200 OK",
+          "body": "{\n  \"message\": \"Task deleted successfully\"\n}"
+        }
+      ]
+    }
+  ]
+}
