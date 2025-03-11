@@ -7,6 +7,11 @@ interface StoreState {
   completed: number;
   deleted: number;
   selectedTask: Task | null;
+  fetchedAt: string;
+  updatedAt: string;
+
+  setFetchedAt: (dateTime: string) => void;
+  setUpdatedAt: (dateTime: string) => void;
 
   fetchCounts: () => Promise<void>;
   setSelectedTask: (selectedTask: Task | null) => void;
@@ -17,6 +22,16 @@ const useStore = create<StoreState>((set) => ({
   completed: 0,
   deleted: 0,
   selectedTask: null,
+
+  fetchedAt: '',
+  updatedAt: '',
+
+  setFetchedAt: (dateTime) => {
+    set({ fetchedAt: dateTime })
+  },
+  setUpdatedAt: (dateTime) => {
+    set({ updatedAt: dateTime })
+  },
 
   fetchCounts: async () => {
     try {
@@ -31,6 +46,8 @@ const useStore = create<StoreState>((set) => ({
   setSelectedTask: (selectedTask) => {
     set({ selectedTask });
   },
+
+
 }));
 
 export default useStore;

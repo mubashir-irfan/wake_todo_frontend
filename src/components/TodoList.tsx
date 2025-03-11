@@ -6,33 +6,31 @@ import { TasksService } from '@/services';
 import useStore from '@/store/useStore';
 import { Pagination } from '@/shared/components';
 import { TodoListSkeleton, TodoListEmpty } from '@/shared/components/adhoc';
+import { getCurrentDateTimeStamp } from '@/utils';
 
 
 const TodoList: React.FC = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [errorMessage, setErrorMessage] = useState<string>('');
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
-  const { fetchCounts, setSelectedTask } = useStore();
-  console.log(isLoading, errorMessage)
+  const { fetchCounts, setSelectedTask, setFetchedAt, updatedAt } = useStore();
+
   const fetchTasks = async () => {
     setIsLoading(true);
-    setErrorMessage('');
     setTimeout(fetchCounts, 100);
 
     try {
       const data = await TasksService.getTasks(currentPage);
       setTasks(data.tasks.filter(task => !task.deleted));
       setTotalPages(data.pagination.totalPages);
+      setFetchedAt(getCurrentDateTimeStamp())
     } catch (err) {
       if (err instanceof Error) {
-        console.error('[TodosWidget] Error in fetching tasks list,err')
-        setErrorMessage(err.message);
+        console.error('[TodosWidget] Error in fetching tasks list', err)
       } else {
         console.error('[TodosWidget] Error in fetching tasks list')
-        setErrorMessage('Failed to fetch Tasks list');
       }
     } finally {
       setIsLoading(false);
@@ -41,7 +39,7 @@ const TodoList: React.FC = () => {
 
   useEffect(() => {
     fetchTasks();
-  }, [currentPage, fetchCounts]);
+  }, [currentPage, updatedAt, fetchCounts]);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);

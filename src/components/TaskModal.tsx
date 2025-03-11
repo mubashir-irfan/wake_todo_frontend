@@ -7,6 +7,7 @@ import { Button, Modal } from '@/shared/components';
 import { z } from 'zod';
 import { TasksService } from '@/services';
 import { getCurrentDateTimeStamp } from '@/utils';
+import useStore from '@/store/useStore';
 
 const taskSchema = z.object({
   text: z.string().min(1, 'Task text is required').max(100, 'Max characters 100')
@@ -22,6 +23,7 @@ function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
   const [text, setText] = useState('');
   const [errorMsg, setErrorMsg] = useState<string>('')
   const isEditMode = !!task;
+  const { setUpdatedAt } = useStore();
 
   useEffect(() => {
     if (task) {
@@ -39,10 +41,11 @@ function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
       createdAt: getCurrentDateTimeStamp(),
     }
     TasksService.addTask(newTask).then(() => {
-      alert('Task added successfully')
+      // alert('Task added successfully');
+      setUpdatedAt(getCurrentDateTimeStamp())
     }).catch((err) => {
       console.error('Failed to add task', err)
-    })
+    }).finally(onModalClose)
   }
 
   const onUpdateTask = () => {
@@ -54,10 +57,11 @@ function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
       ...task,
       text
     }).then(() => {
-      alert('Task updated successfully')
+      // alert('Task updated successfully');
+      setUpdatedAt(getCurrentDateTimeStamp())
     }).catch((err) => {
       console.error('Failed to update task', err)
-    })
+    }).finally(onModalClose)
   }
 
   const onSubmit = () => {
