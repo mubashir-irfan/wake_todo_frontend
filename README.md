@@ -76,7 +76,9 @@ The codebase has a local file-system based mock backend, to facilitate isolated 
     node server.js
 ```
 By default, the mock backend will be accessible at ` http://localhost:3003`
+
 2. **Starting the Frontend Application**
+
 In a terminal session different from mock-backend's, run `npm run dev or yarn dev`
 By default, the application will be accessible at `http://localhost:3000`
 
