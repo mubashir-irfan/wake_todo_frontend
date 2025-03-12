@@ -60,35 +60,35 @@
       "id": 9,
       "text": "Research competitors' pricing strategies",
       "completed": false,
-      "deleted": false,
+      "deleted": true,
       "createdAt": "2025-02-04T00:00:00Z"
     },
     {
       "id": 10,
       "text": "Deploy updated website design to production",
       "completed": false,
-      "deleted": false,
+      "deleted": true,
       "createdAt": "2025-02-04T01:00:00Z"
     },
     {
       "id": 11,
       "text": "Draft social media posts for upcoming event",
       "completed": false,
-      "deleted": false,
+      "deleted": true,
       "createdAt": "2025-02-04T02:00:00Z"
     },
     {
       "id": 12,
       "text": "Test new features on mobile application",
       "completed": true,
-      "deleted": false,
+      "deleted": true,
       "createdAt": "2025-02-04T03:00:00Z"
     },
     {
       "id": 13,
       "text": "Organize team-building activity for next quarter",
       "completed": false,
-      "deleted": false,
+      "deleted": true,
       "createdAt": "2025-02-04T04:00:00Z"
     },
     {
@@ -107,8 +107,8 @@
     }
   ],
   "counts": {
-    "uncompleted": 12,
-    "completed": 3,
-    "deleted": 0
+    "uncompleted": 8,
+    "completed": 2,
+    "deleted": 5
   }
 }

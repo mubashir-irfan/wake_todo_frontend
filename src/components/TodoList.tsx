@@ -1,13 +1,13 @@
 'use client';
 import { Task } from '@/types';
 import Todo from './Todo';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { TasksService } from '@/services';
 import useStore from '@/store/useStore';
 import { Pagination } from '@/shared/components';
 import { TodoListSkeleton, TodoListEmpty } from '@/shared/components/adhoc';
 import { getCurrentDateTimeStamp } from '@/utils';
-
+import dayjs from 'dayjs';
 
 const TodoList: React.FC = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -17,29 +17,31 @@ const TodoList: React.FC = () => {
 
   const { fetchCounts, setSelectedTask, setFetchedAt, updatedAt } = useStore();
 
-  const fetchTasks = async () => {
+  const fetchTasks = useCallback(async () => {
     setIsLoading(true);
     setTimeout(fetchCounts, 100);
 
     try {
       const data = await TasksService.getTasks(currentPage);
-      setTasks(data.tasks.filter(task => !task.deleted));
+      console.log('fetched tasks', data)
+      setTasks(data.tasks.filter(task => !task.deleted).sort((a, b) => dayjs(b.createdAt).valueOf() - dayjs(a.createdAt).valueOf()));
       setTotalPages(data.pagination.totalPages);
-      setFetchedAt(getCurrentDateTimeStamp())
+      setFetchedAt(getCurrentDateTimeStamp());
     } catch (err) {
       if (err instanceof Error) {
-        console.error('[TodosWidget] Error in fetching tasks list', err)
+        console.error('[TodosWidget] Error in fetching tasks list', err);
       } else {
-        console.error('[TodosWidget] Error in fetching tasks list')
+        console.error('[TodosWidget] Error in fetching tasks list');
       }
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [currentPage, fetchCounts, setFetchedAt]);
+
 
   useEffect(() => {
     fetchTasks();
-  }, [currentPage, updatedAt, fetchCounts]);
+  }, [currentPage, updatedAt, fetchTasks]);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -68,8 +70,8 @@ const TodoList: React.FC = () => {
     <div className='flex flex-col gap-3' >
       <div className="space-y-2 shadow-lg">
         {tasks.map((task, index) => (
-          <div key={task.id}>
-            {index > 0 && <hr className="border-t border-gray-300" />}
+          <div key={task.id} className=''>
+            {index > 0 && <hr className="pt-2 border-t border-gray-300" />}
             <Todo
               task={task}
               onMarkComplete={handleMarkComplete}

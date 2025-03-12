@@ -1,4 +1,5 @@
 import { Task } from "@/types";
+import { MouseEventHandler } from "react";
 import { FaCheckCircle, FaTrash } from "react-icons/fa";
 
 interface TodoProps {
@@ -19,13 +20,12 @@ const Todo: React.FC<TodoProps> = ({ task, onMarkComplete, onMarkIncomplete, onD
   };
 
   return (
-    <div className="flex items-center justify-between bg-white p-3 cursor-pointer hover:bg-gray-100" onDoubleClick={() => onDoubleClick(task)}>
+    <div className="flex items-center justify-between bg-white p-3 cursor-pointer hover:bg-gray-100">
       <button onClick={task.completed ? handleIncomplete : handleComplete} className={`cursor-pointer ${task.completed ? 'text-black-600' : 'opacity-25'} `}>
-
         <FaCheckCircle size={20} />
       </button>
 
-      <span className={`flex-1 mx-3 text-gray-800 ${task.completed ? "line-through" : ""}`}>
+      <span className={`flex-1 mx-3 text-gray-800 ${task.completed ? "line-through" : ""}`} onDoubleClick={() => onDoubleClick(task)}>
         {task.text}
       </span>
 
