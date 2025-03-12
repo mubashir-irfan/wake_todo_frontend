@@ -15,8 +15,6 @@ Welcome to the **Wake Todo Frontend** repository! This project is a simple yet f
 - [Project Structure](#project-structure)
 - [Available Scripts](#available-scripts)
 - [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgements](#acknowledgements)
 
 ## Features
 
