@@ -1,11 +1,9 @@
-
-import axios from 'axios';
-import ServerAPI from '@/services/server-api';
+// import axios from 'axios';
+// import ServerAPI from '@/services/server-api';
 
 jest.mock('axios');
 
 describe('ServerAPI', () => {
-
   afterEach(() => {
     jest.clearAllMocks();
   });

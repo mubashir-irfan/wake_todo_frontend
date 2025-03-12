@@ -51,7 +51,7 @@ const Header = () => {
               textColor="text-white"
               bgColor="bg-purple-500"
               title={t('incomplete')}
-              data-testid="uncompleted-badge"
+              data-testid="incomplete-badge"
             />
             <CountBadge
               count={completed}

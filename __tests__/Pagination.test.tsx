@@ -25,7 +25,7 @@ describe('Pagination Component', () => {
     render(
       <NextIntlClientProvider locale="en" messages={messages}>
         <Pagination {...defaultProps} {...props} />
-      </NextIntlClientProvider>
+      </NextIntlClientProvider>,
     );
 
   test('should display the correct page numbers and pagination buttons', () => {

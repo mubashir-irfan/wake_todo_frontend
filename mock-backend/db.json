@@ -95,20 +95,20 @@
       "id": 14,
       "text": "Review and approve timesheets for team members",
       "completed": false,
-      "deleted": false,
+      "deleted": true,
       "createdAt": "2025-02-04T05:00:00Z"
     },
     {
       "id": 15,
       "text": "Set up a meeting with the design team to discuss new branding guidelines",
       "completed": false,
-      "deleted": false,
+      "deleted": true,
       "createdAt": "2025-02-04T06:00:00Z"
     }
   ],
   "counts": {
-    "uncompleted": 12,
+    "uncompleted": 10,
     "completed": 3,
-    "deleted": 0
+    "deleted": 2
   }
 }
