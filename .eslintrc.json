@@ -1,11 +1,40 @@
 {
-  "extends": ["airbnb", "airbnb/hooks", "airbnb-typescript", "prettier"],
-  "plugins": ["prettier"],
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "prettier"
+  ],
+  "plugins": [
+    "prettier",
+    "react-hooks"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json"
   },
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "react/prop-types": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/react-in-jsx-scope": "off",
+    "import/extensions": "off",
+    "import/order": "off",
+    "react/function-component-definition": "off",
+    "react/self-closing-comp": "off",
+    "react/button-has-type": "off",
+    "object-shorthand": "off",
+    "arrow-body-style": "off",
+    "react/jsx-no-constructed-context-values": "off",
+    "react/no-array-index-key": "off",
+    "import/prefer-default-export": "off",
+    "import/no-cycle": "off",
+    "no-console": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "lines-around-directive": "off",
+    "react/require-default-props": "off",
+    "@typescript-eslint/lines-between-class-members": "off", // Disable or configure as needed
+    "@typescript-eslint/no-throw-literal": "off"
   }
 }

@@ -81,7 +81,7 @@ function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
     } catch (error) {
       if (error instanceof z.ZodError) {
         // if we had multiple fields, we would have used a form structure for error messages
-        const errors = error.errors;
+        const errors = { ...error.errors };
         if (errors.length) {
           setErrorMsg(errors[0].message);
         }
