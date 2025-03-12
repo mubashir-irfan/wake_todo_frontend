@@ -1,9 +1,8 @@
-'use client'
-import { TodoList } from "@/components";
-import { Header } from "@/shared/components";
+'use client';
+import { TodoList } from '@/components';
+import { Header } from '@/shared/components';
 
 export default function Home() {
-
   return (
     <div className="h-screen w-screen flex flex-col">
       <Header />
@@ -14,9 +13,7 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-
-      </footer>
+      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center"></footer>
     </div>
   );
 }

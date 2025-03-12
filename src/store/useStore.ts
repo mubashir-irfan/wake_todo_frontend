@@ -27,10 +27,10 @@ const useStore = create<StoreState>((set) => ({
   updatedAt: '',
 
   setFetchedAt: (dateTime) => {
-    set({ fetchedAt: dateTime })
+    set({ fetchedAt: dateTime });
   },
   setUpdatedAt: (dateTime) => {
-    set({ updatedAt: dateTime })
+    set({ updatedAt: dateTime });
   },
 
   fetchCounts: async () => {
@@ -46,8 +46,6 @@ const useStore = create<StoreState>((set) => ({
   setSelectedTask: (selectedTask) => {
     set({ selectedTask });
   },
-
-
 }));
 
 export default useStore;

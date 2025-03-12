@@ -10,23 +10,41 @@ const instance = axios.create({
 });
 
 export const ServerAPI = {
-  get: async <T>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> => {
+  get: async <T>(
+    url: string,
+    config?: AxiosRequestConfig,
+  ): Promise<AxiosResponse<T>> => {
     return instance.get<T>(url, config);
   },
 
-  post: async <T, U>(url: string, data?: U, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> => {
+  post: async <T, U>(
+    url: string,
+    data?: U,
+    config?: AxiosRequestConfig,
+  ): Promise<AxiosResponse<T>> => {
     return instance.post<T>(url, data, config);
   },
 
-  put: async <T, U>(url: string, data?: U, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> => {
+  put: async <T, U>(
+    url: string,
+    data?: U,
+    config?: AxiosRequestConfig,
+  ): Promise<AxiosResponse<T>> => {
     return instance.put<T>(url, data, config);
   },
 
-  patch: async <T, U>(url: string, data?: U, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> => {
+  patch: async <T, U>(
+    url: string,
+    data?: U,
+    config?: AxiosRequestConfig,
+  ): Promise<AxiosResponse<T>> => {
     return instance.patch<T>(url, data, config);
   },
 
-  delete: async <T>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> => {
+  delete: async <T>(
+    url: string,
+    config?: AxiosRequestConfig,
+  ): Promise<AxiosResponse<T>> => {
     return instance.delete<T>(url, config);
   },
 };

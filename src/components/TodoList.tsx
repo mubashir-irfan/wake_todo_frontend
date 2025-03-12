@@ -23,8 +23,15 @@ const TodoList: React.FC = () => {
 
     try {
       const data = await TasksService.getTasks(currentPage);
-      console.log('fetched tasks', data)
-      setTasks(data.tasks.filter(task => !task.deleted).sort((a, b) => dayjs(b.createdAt).valueOf() - dayjs(a.createdAt).valueOf()));
+      console.log('fetched tasks', data);
+      setTasks(
+        data.tasks
+          .filter((task) => !task.deleted)
+          .sort(
+            (a, b) =>
+              dayjs(b.createdAt).valueOf() - dayjs(a.createdAt).valueOf(),
+          ),
+      );
       setTotalPages(data.pagination.totalPages);
       setFetchedAt(getCurrentDateTimeStamp());
     } catch (err) {
@@ -38,7 +45,6 @@ const TodoList: React.FC = () => {
     }
   }, [currentPage, fetchCounts, setFetchedAt]);
 
-
   useEffect(() => {
     fetchTasks();
   }, [currentPage, updatedAt, fetchTasks]);
@@ -48,29 +54,34 @@ const TodoList: React.FC = () => {
   };
 
   const handleMarkComplete = (id: number) => {
-    TasksService.markTaskAsComplete(id).then(fetchTasks).catch(err => console.error('Error marking task complete:', err))
-  }
+    TasksService.markTaskAsComplete(id)
+      .then(fetchTasks)
+      .catch((err) => console.error('Error marking task complete:', err));
+  };
 
   const handleMarkIncomplete = (id: number) => {
-    TasksService.markTaskAsIncomplete(id).then(fetchTasks).catch(err => console.error('Error marking task incomplete:', err))
+    TasksService.markTaskAsIncomplete(id)
+      .then(fetchTasks)
+      .catch((err) => console.error('Error marking task incomplete:', err));
   };
 
   const handleDelete = (id: number) => {
-    TasksService.deleteTask(id).then(fetchTasks).catch(err => console.error('Error deleting task incomplete:', err))
+    TasksService.deleteTask(id)
+      .then(fetchTasks)
+      .catch((err) => console.error('Error deleting task incomplete:', err));
   };
 
-  const handleDoubleClickOnTask = (task: Task) => setSelectedTask(task)
+  const handleDoubleClickOnTask = (task: Task) => setSelectedTask(task);
 
+  if (isLoading) return <TodoListSkeleton />;
 
-  if (isLoading) return <TodoListSkeleton />
-
-  if (!tasks.length) return <TodoListEmpty />
+  if (!tasks.length) return <TodoListEmpty />;
 
   return (
-    <div className='flex flex-col gap-3' >
+    <div className="flex flex-col gap-3">
       <div className="space-y-2 shadow-lg">
         {tasks.map((task, index) => (
-          <div key={task.id} className=''>
+          <div key={task.id} className="">
             {index > 0 && <hr className="pt-2 border-t border-gray-300" />}
             <Todo
               task={task}

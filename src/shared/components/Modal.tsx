@@ -6,7 +6,7 @@ import {
   DialogDescription,
   DialogFooter,
   DialogHeader,
-  DialogTitle
+  DialogTitle,
 } from '@/components/ui/dialog';
 import { ReactNode } from 'react';
 
@@ -38,7 +38,7 @@ function Modal({
         </DialogHeader>
         <div className="grid gap-4 py-4">{children}</div>
         <DialogFooter>
-          <div className='flex flex-col-reverse sm:flex-row gap-2'>
+          <div className="flex flex-col-reverse sm:flex-row gap-2">
             {secondaryButton}
             {primaryButton}
           </div>

@@ -1,5 +1,5 @@
-import { Task } from "@/types";
-import { FaCheckCircle, FaTrash } from "react-icons/fa";
+import { Task } from '@/types';
+import { FaCheckCircle, FaTrash } from 'react-icons/fa';
 
 interface TodoProps {
   task: Task;
@@ -9,7 +9,13 @@ interface TodoProps {
   onDoubleClick: (task: Task) => void;
 }
 
-const Todo: React.FC<TodoProps> = ({ task, onMarkComplete, onMarkIncomplete, onDelete, onDoubleClick }) => {
+const Todo: React.FC<TodoProps> = ({
+  task,
+  onMarkComplete,
+  onMarkIncomplete,
+  onDelete,
+  onDoubleClick,
+}) => {
   const handleComplete = () => {
     onMarkComplete(task.id);
   };
@@ -20,15 +26,24 @@ const Todo: React.FC<TodoProps> = ({ task, onMarkComplete, onMarkIncomplete, onD
 
   return (
     <div className="flex items-center justify-between bg-white p-3 cursor-pointer hover:bg-gray-100">
-      <button onClick={task.completed ? handleIncomplete : handleComplete} className={`cursor-pointer ${task.completed ? 'text-black-600' : 'opacity-25'} `}>
+      <button
+        onClick={task.completed ? handleIncomplete : handleComplete}
+        className={`cursor-pointer ${task.completed ? 'text-black-600' : 'opacity-25'} `}
+      >
         <FaCheckCircle size={20} />
       </button>
 
-      <span className={`flex-1 mx-3 text-gray-800 ${task.completed ? "line-through" : ""}`} onDoubleClick={() => onDoubleClick(task)}>
+      <span
+        className={`flex-1 mx-3 text-gray-800 ${task.completed ? 'line-through' : ''}`}
+        onDoubleClick={() => onDoubleClick(task)}
+      >
         {task.text}
       </span>
 
-      <button onClick={() => onDelete(task.id)} className="text-red-600 hover:text-red-800 cursor-pointer">
+      <button
+        onClick={() => onDelete(task.id)}
+        className="text-red-600 hover:text-red-800 cursor-pointer"
+      >
         <FaTrash size={20} />
       </button>
     </div>

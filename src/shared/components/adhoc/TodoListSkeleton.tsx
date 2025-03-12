@@ -4,7 +4,7 @@ import React from 'react';
 
 const TodoListSkeleton: React.FC = () => {
   return (
-    <div className='flex flex-col gap-3'>
+    <div className="flex flex-col gap-3">
       <div className="space-y-2 shadow-lg">
         {Array.from({ length: 10 }).map((_, index) => (
           <div key={index}>

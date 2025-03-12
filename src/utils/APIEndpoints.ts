@@ -7,7 +7,7 @@ const APIEndpoints = {
   tasks: {
     getAll: () => 'tasks',
     getCounts: () => 'counts',
-  }
-}
+  },
+};
 
 export default APIEndpoints;

@@ -5,12 +5,12 @@ interface IconProps {
   className?: string;
 }
 
-const Icon: React.FC<IconProps> = ({ icon, className = 'text-text-dark dark:text-text-light' }) => {
+const Icon: React.FC<IconProps> = ({
+  icon,
+  className = 'text-text-dark dark:text-text-light',
+}) => {
   return (
-    <div
-      className={className}
-      aria-hidden="true"
-    >
+    <div className={className} aria-hidden="true">
       {icon}
     </div>
   );

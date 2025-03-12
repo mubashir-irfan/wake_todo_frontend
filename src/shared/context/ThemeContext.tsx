@@ -7,7 +7,9 @@ interface ThemeContextType {
   toggleTheme: () => void;
 }
 
-export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+export const ThemeContext = createContext<ThemeContextType | undefined>(
+  undefined,
+);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
@@ -17,7 +19,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     if (storedTheme) {
       setTheme(storedTheme === 'dark' ? 'dark' : 'light');
     } else {
-      setTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      setTheme(
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light',
+      );
     }
   }, []);
 

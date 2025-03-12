@@ -10,9 +10,12 @@ interface PaginationProps {
   onPageChange: (page: number) => void;
 }
 
-const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
+const Pagination: React.FC<PaginationProps> = ({
+  currentPage,
+  totalPages,
+  onPageChange,
+}) => {
   const t = useTranslations('misc');
-
 
   const handlePrevPage = () => {
     if (currentPage > 1) {
@@ -43,9 +46,7 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
         <span className="sr-only">{t('previous')}</span>
       </Button>
 
-      <span className="text-sm font-medium">
-        {pageOfText}
-      </span>
+      <span className="text-sm font-medium">{pageOfText}</span>
 
       <Button
         variant="outline"

@@ -1,5 +1,4 @@
-@import "tailwindcss";
-
+@import 'tailwindcss';
 
 @plugin "tailwindcss-animate";
 
@@ -98,13 +97,13 @@
   /* app vars */
 
   /* UI control colors */
-  --bg-control-primary: oklch(0% 0.000 2);
-  --bg-control-secondary: oklch(100.00000000000003% 0.000 1);
-  --text-control-primary: oklch(100.00000000000003% 0.000 1);
-  --text-control-secondary: oklch(0% 0.000 2);
+  --bg-control-primary: oklch(0% 0 2);
+  --bg-control-secondary: oklch(100.00000000000003% 0 1);
+  --text-control-primary: oklch(100.00000000000003% 0 1);
+  --text-control-secondary: oklch(0% 0 2);
 
   /*text-colors*/
-  --text-primary: oklch(0% 0.000 2);
+  --text-primary: oklch(0% 0 2);
 }
 
 .dark {
@@ -140,8 +139,6 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
-
-
 }
 
 @layer base {

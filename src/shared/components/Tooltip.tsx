@@ -1,4 +1,9 @@
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 interface CustomTooltipProps {
   label: string;
@@ -9,12 +14,8 @@ const ToolTip: React.FC<CustomTooltipProps> = ({ label, children }) => {
   return (
     <TooltipProvider>
       <Tooltip>
-        <TooltipTrigger asChild>
-          {children}
-        </TooltipTrigger>
-        <TooltipContent>
-          {label}
-        </TooltipContent>
+        <TooltipTrigger asChild>{children}</TooltipTrigger>
+        <TooltipContent>{label}</TooltipContent>
       </Tooltip>
     </TooltipProvider>
   );

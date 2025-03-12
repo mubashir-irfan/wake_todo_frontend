@@ -10,7 +10,10 @@ import { getCurrentDateTimeStamp } from '@/utils';
 import useStore from '@/store/useStore';
 
 const taskSchema = z.object({
-  text: z.string().min(1, 'Task text is required').max(100, 'Max characters 100')
+  text: z
+    .string()
+    .min(1, 'Task text is required')
+    .max(100, 'Max characters 100'),
 });
 
 interface TaskModalProps {
@@ -21,7 +24,7 @@ interface TaskModalProps {
 
 function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
   const [text, setText] = useState('');
-  const [errorMsg, setErrorMsg] = useState<string>('')
+  const [errorMsg, setErrorMsg] = useState<string>('');
   const isEditMode = !!task;
   const { setUpdatedAt } = useStore();
 
@@ -39,14 +42,17 @@ function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
       completed: false,
       deleted: false,
       createdAt: getCurrentDateTimeStamp(),
-    }
-    TasksService.addTask(newTask).then(() => {
-      // alert('Task added successfully');
-      setUpdatedAt(getCurrentDateTimeStamp())
-    }).catch((err) => {
-      console.error('Failed to add task', err)
-    }).finally(onModalClose)
-  }
+    };
+    TasksService.addTask(newTask)
+      .then(() => {
+        // alert('Task added successfully');
+        setUpdatedAt(getCurrentDateTimeStamp());
+      })
+      .catch((err) => {
+        console.error('Failed to add task', err);
+      })
+      .finally(onModalClose);
+  };
 
   const onUpdateTask = () => {
     if (!task) {
@@ -55,14 +61,17 @@ function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
     }
     TasksService.updateTask(task.id, {
       ...task,
-      text
-    }).then(() => {
-      // alert('Task updated successfully');
-      setUpdatedAt(getCurrentDateTimeStamp())
-    }).catch((err) => {
-      console.error('Failed to update task', err)
-    }).finally(onModalClose)
-  }
+      text,
+    })
+      .then(() => {
+        // alert('Task updated successfully');
+        setUpdatedAt(getCurrentDateTimeStamp());
+      })
+      .catch((err) => {
+        console.error('Failed to update task', err);
+      })
+      .finally(onModalClose);
+  };
 
   const onSubmit = () => {
     try {
@@ -74,22 +83,20 @@ function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
         // if we had multiple fields, we would have used a form structure for error messages
         const errors = error.errors;
         if (errors.length) {
-          setErrorMsg(errors[0].message)
+          setErrorMsg(errors[0].message);
         }
-
       }
     }
-  }
-
+  };
 
   const resetState = () => {
     setText('');
-    setErrorMsg('')
-  }
+    setErrorMsg('');
+  };
   const onModalClose = () => {
     resetState();
     onClose();
-  }
+  };
 
   return (
     <Modal
@@ -97,7 +104,7 @@ function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
       isOpen={isOpen}
       onClose={onModalClose}
       primaryButton={
-        <Button variant='primary' onClick={onSubmit}>
+        <Button variant="primary" onClick={onSubmit}>
           {isEditMode ? 'Update Task' : 'Add Task'}
         </Button>
       }
@@ -113,9 +120,11 @@ function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
           onChange={(e) => setText(e.target.value)}
           className="w-full max-w-full overflow-hidden whitespace-pre-wrap break-words resize-vertical"
           maxLength={250}
-          placeholder='Enter task name here...'
+          placeholder="Enter task name here..."
         />
-        {!!errorMsg && <p className='w-full text-red-700 text-sm'>{errorMsg}</p>}
+        {!!errorMsg && (
+          <p className="w-full text-red-700 text-sm">{errorMsg}</p>
+        )}
       </div>
     </Modal>
   );
