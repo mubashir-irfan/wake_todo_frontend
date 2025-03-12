@@ -10,7 +10,7 @@ const Icon: React.FC<IconProps> = ({
   className = 'text-text-dark dark:text-text-light',
 }) => {
   return (
-    <div className={className} aria-hidden="true">
+    <div data-testid='icon-wrapper' className={className} aria-hidden="true">
       {icon}
     </div>
   );
