@@ -28,11 +28,11 @@ const Header = () => {
 
   return (
     <header
-      className="bg-background-light-secondary dark:bg-background-dark-secondary border-b border-border-light border-solid"
+      className="bg-background-light-secondary dark:bg-background-dark-secondary border-b border-gray-300 dark:border-gray-700 border-solid"
       data-testid="header"
     >
       <div className="flex justify-between items-center p-4">
-        <div className="flex gap-4 items-center">
+        <div className="flex gap-2 items-center">
           <Icon icon={<FaCheckDouble size={24} />} />
           <p
             className="text-text-dark dark:text-text-light text-2xl font-bold"
@@ -41,9 +41,9 @@ const Header = () => {
             {t('title')}
           </p>
         </div>
-        <div className="flex gap-lg">
+        <div className="flex items-center gap-3">
           <div
-            className="flex gap-2 p-2 border-r border-solid border-border-light"
+            className="flex gap-2"
             data-testid="count-badge-container"
           >
             <CountBadge
@@ -68,6 +68,7 @@ const Header = () => {
               data-testid="deleted-badge"
             />
           </div>
+          <div className='w-[1px] h-4 bg-gray-300 dark:bg-gray-700' />
           <Button
             icon={<FaPlus size={16} />}
             onClick={onAddTask}

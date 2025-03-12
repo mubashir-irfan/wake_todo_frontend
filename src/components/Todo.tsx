@@ -25,7 +25,7 @@ const Todo: React.FC<TodoProps> = ({
   };
 
   return (
-    <div className="flex items-center justify-between bg-white p-3 cursor-pointer hover:bg-gray-100">
+    <div className="flex items-center justify-between p-3 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800">
       <button
         onClick={task.completed ? handleIncomplete : handleComplete}
         className={`cursor-pointer ${task.completed ? 'text-black-600' : 'opacity-25'} `}
@@ -34,7 +34,7 @@ const Todo: React.FC<TodoProps> = ({
       </button>
 
       <span
-        className={`flex-1 mx-3 text-gray-800 ${task.completed ? 'line-through' : ''}`}
+        className={`flex-1 mx-3 ${task.completed ? 'line-through' : ''}`}
         onDoubleClick={() => onDoubleClick(task)}
       >
         {task.text}

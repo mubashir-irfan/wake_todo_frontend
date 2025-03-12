@@ -1,6 +1,6 @@
 'use client';
 import { TodoList } from '@/components';
-import { Header } from '@/shared/components';
+import { Header, ThemeSwitcher } from '@/shared/components';
 
 export default function Home() {
   return (
@@ -13,7 +13,9 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <footer className="flex gap-6 flex-wrap items-center justify-center"></footer>
+      <footer className="flex gap-6 flex-wrap items-center justify-center">
+        <ThemeSwitcher />
+      </footer>
     </div>
   );
 }

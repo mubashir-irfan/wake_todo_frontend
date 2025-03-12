@@ -52,9 +52,11 @@
   
   */
   --color-bg-control-primary: var(--bg-control-primary);
-  --color-bg-control-secondary: var(--bg-control-secondary);
   --color-text-control-primary: var(--text-control-primary);
+  --color-bg-control-primary-hover: var(--bg-control-primary-hover);
+  --color-bg-control-secondary: var(--bg-control-secondary);
   --color-text-control-secondary: var(--text-control-secondary);
+  --color-bg-control-secondary-hover: var(--bg-control-secondary-hover);
 
   --color-text-primary: var(--text-primary);
 }
@@ -98,12 +100,13 @@
 
   /* UI control colors */
   --bg-control-primary: oklch(0% 0 2);
-  --bg-control-secondary: oklch(100.00000000000003% 0 1);
-  --text-control-primary: oklch(100.00000000000003% 0 1);
+  --text-control-primary: oklch(100% 0 1);
+  --bg-control-primary-hover: oklch(45% 0 2);
+  --bg-control-secondary: oklch(100% 0 1);
   --text-control-secondary: oklch(0% 0 2);
-
-  /*text-colors*/
-  --text-primary: oklch(0% 0 2);
+  --bg-control-secondary-hover: oklch(20% 0 1)
+    /*text-colors*/
+    --text-primary: oklch(0% 0 2);
 }
 
 .dark {
@@ -139,6 +142,16 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
+
+  /* app vars */
+
+  /* UI control colors */
+  --bg-control-primary: oklch(100% 0 1);
+  --text-control-primary: oklch(0% 0 2);
+  --bg-control-primary-hover: oklch(75% 0 1);
+  --bg-control-secondary: oklch(0% 0 2);
+  --text-control-secondary: oklch(100% 0 1);
+  --bg-control-secondary-hover: oklch(5% 0 2);
 }
 
 @layer base {

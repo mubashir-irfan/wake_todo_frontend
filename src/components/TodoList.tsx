@@ -87,7 +87,7 @@ const TodoList: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="space-y-2 shadow-lg">
+      <div className="space-y-2 shadow-lg dark:shadow-gray-600/50">
         {tasks.map((task, index) => (
           <div key={task.id} className="">
             {index > 0 && <hr className="pt-2 border-t border-gray-300" />}
