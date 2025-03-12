@@ -76,7 +76,7 @@ const TodoList: React.FC = () => {
   if (isLoading) return <TodoListSkeleton />;
 
   if (!tasks.length) return <TodoListEmpty />;
-
+  console.info('rendering list', currentPage, totalPages);
   return (
     <div className="flex flex-col gap-3">
       <div className="space-y-2 shadow-lg">
