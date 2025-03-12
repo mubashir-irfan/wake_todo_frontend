@@ -5,13 +5,14 @@ import { useCallback, useEffect, useState } from 'react';
 import { TasksService } from '@/services';
 import useStore from '@/store/useStore';
 import { Pagination } from '@/shared/components';
-import { TodoListSkeleton, TodoListEmpty } from '@/shared/components/adhoc';
+import { TodoListSkeleton, TodoListEmpty, TodoListError } from '@/shared/components/adhoc';
 import { getCurrentDateTimeStamp } from '@/utils';
 import dayjs from 'dayjs';
 
 const TodoList: React.FC = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isErrorGettingList, setIsErrorGettingList] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
@@ -23,7 +24,7 @@ const TodoList: React.FC = () => {
 
     try {
       const data = await TasksService.getTasks(currentPage);
-      console.log('fetched tasks', data);
+
       setTasks(
         data.tasks
           .filter((task) => !task.deleted)
@@ -35,6 +36,7 @@ const TodoList: React.FC = () => {
       setTotalPages(data.pagination.totalPages);
       setFetchedAt(getCurrentDateTimeStamp());
     } catch (err) {
+      setIsErrorGettingList(true);
       if (err instanceof Error) {
         console.error('[TodosWidget] Error in fetching tasks list', err);
       } else {
@@ -74,6 +76,8 @@ const TodoList: React.FC = () => {
   const handleDoubleClickOnTask = (task: Task) => setSelectedTask(task);
 
   if (isLoading) return <TodoListSkeleton />;
+
+  if (isErrorGettingList) return <TodoListError />
 
   if (!tasks.length) return <TodoListEmpty />;
   console.info('rendering list', currentPage, totalPages);

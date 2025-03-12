@@ -14,6 +14,8 @@
   "misc": {
     "next": "Next",
     "previous": "Previous",
-    "pageOf": "Page {currentPage} of {totalPages}"
+    "pageOf": "Page {currentPage} of {totalPages}",
+    "serviceRestoring": "Service is down",
+    "serviceRestoringDescription": "We are working to restore the service as quickly as possible"
   }
 }
