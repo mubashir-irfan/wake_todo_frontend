@@ -18,12 +18,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const storedTheme = localStorage.getItem('theme');
     if (storedTheme) {
       setTheme(storedTheme === 'dark' ? 'dark' : 'light');
-    } else {
-      setTheme(
-        window.matchMedia('(prefers-color-scheme: dark)').matches
-          ? 'dark'
-          : 'light',
-      );
     }
   }, []);
 
