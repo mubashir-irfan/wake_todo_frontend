@@ -38,7 +38,6 @@ Welcome to the **Wake Todo Frontend** repository! This project is a simple yet f
   - [json-server](https://github.com/typicode/json-server): A full fake REST API for testing and prototyping.
 - **Testing**:
   - [Jest](https://jestjs.io/): A delightful JavaScript testing framework.
-  - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro): Simple and complete React DOM testing utilities.
 - **Development Tools**:
   - [Storybook](https://storybook.js.org/): UI component explorer for frontend developers.
 
