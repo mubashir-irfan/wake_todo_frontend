@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import { ThemeProvider } from '@/context';
-import { Analytics as VercelAnalytics } from "@vercel/analytics/react"
+import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 import { SpeedInsights as VercelSpeedInsights } from '@vercel/speed-insights/react';
 
 import '@/styles/global.css';

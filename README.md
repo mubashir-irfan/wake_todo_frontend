@@ -53,11 +53,14 @@ Ensure you have the following installed:
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
 ### Installation
+
 1. **Clone the repo**
+
 ```
     git clone https://github.com/mubashir-irfan/wake_todo_frontend.git
     cd wake_todo_frontend
 ```
+
 2. **Installing Dependencies**
 
 Using `npm install` or `yarn install`
@@ -65,16 +68,21 @@ Using `npm install` or `yarn install`
 3. **Installing Mock Backend Dependencies (for local development)**
 
 The codebase has a local file-system based mock backend, to facilitate isolated development and testing. It's essentially an indepdent package and needs its own dependencies
+
 ```
     cd mock-backend
     npm install or yarn install
 ```
+
 ### Running the Application
+
 1. **Running the mock backend**
+
 ```
     cd mock-backend
     node server.js
 ```
+
 By default, the mock backend will be accessible at ` http://localhost:3003`
 
 2. **Starting the Frontend Application**
@@ -91,6 +99,7 @@ The application follows a modular, feature-isolation structure. The structure en
 - Shared entities are present inside src/shared
 
 ## Available scripts
+
 In the project directory, you can run:
 
 - `npm run dev`: Starts the development server.
@@ -101,6 +110,7 @@ In the project directory, you can run:
 - `npm run storybook`: Starts the Storybook server for component exploration.
 
 ## Contributing
+
 1. Fork the repository.
 2. Create a new branch (git checkout -b feature/YourFeature).
 3. Commit your changes (git commit -m 'Add YourFeature').
