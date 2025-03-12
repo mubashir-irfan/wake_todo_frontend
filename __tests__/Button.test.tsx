@@ -2,7 +2,6 @@ import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import Button from '@/shared/components/Button';
 
-
 describe('Button component', () => {
   it('should render the button with the correct text', () => {
     render(<Button>Click Me</Button>);
@@ -15,11 +14,7 @@ describe('Button component', () => {
   it('should render the button with the correct icon', () => {
     const icon = <span data-testid="icon">🔥</span>;
 
-    render(
-      <Button icon={icon}>
-        Button with Icon
-      </Button>
-    );
+    render(<Button icon={icon}>Button with Icon</Button>);
 
     // Check if the icon is rendered
     const button = screen.getByRole('button');
@@ -81,7 +76,6 @@ describe('Button component', () => {
   it('should render the button without icon if no icon is provided', () => {
     render(<Button>No Icon Button</Button>);
 
-    const button = screen.getByRole('button');
     const icon = screen.queryByTestId('icon');
     expect(icon).toBeNull(); // No icon should be rendered
   });

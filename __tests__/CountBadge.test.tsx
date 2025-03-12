@@ -40,7 +40,7 @@ describe('CountBadge component', () => {
         bgColor={customBgColor}
         textColor={customTextColor}
         className={customClassName}
-      />
+      />,
     );
 
     // Check if the custom classes are applied
