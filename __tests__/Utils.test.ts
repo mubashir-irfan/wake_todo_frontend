@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-import { getCurrentDateTimeStamp } from '@/utils/';
+import { getCurrentDateTimeStamp } from '@/shared/utils';
 
 dayjs.extend(utc);
 

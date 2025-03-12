@@ -10,7 +10,7 @@ import {
   TodoListEmpty,
   TodoListError,
 } from '@/shared/components/adhoc';
-import { getCurrentDateTimeStamp } from '@/utils';
+import { getCurrentDateTimeStamp } from '@/shared/utils';
 import dayjs from 'dayjs';
 
 const TodoList: React.FC = () => {

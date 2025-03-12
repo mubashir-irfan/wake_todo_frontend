@@ -42,9 +42,11 @@ const Todo: React.FC<TodoProps> = ({
 
       <button
         onClick={() => onDelete(task.id)}
-        className="text-red-600 hover:text-red-800 cursor-pointer"
+        className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 cursor-pointer"
       >
-        <FaTrash size={20} />
+        <div>
+          <FaTrash size={20} />
+        </div>
       </button>
     </div>
   );

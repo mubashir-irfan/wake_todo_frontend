@@ -1,5 +1,5 @@
 import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
-import { useTheme } from '../hooks';
+import { useTheme } from '@/hooks';
 
 function ThemeSwitcher() {
   const { theme, toggleTheme } = useTheme();

@@ -6,7 +6,7 @@ import { NewTaskPayload, Task } from '@/types';
 import { Button, Modal } from '@/shared/components';
 import { z } from 'zod';
 import { TasksService } from '@/services';
-import { getCurrentDateTimeStamp } from '@/utils';
+import { getCurrentDateTimeStamp } from '@/shared/utils';
 import useStore from '@/store/useStore';
 
 const taskSchema = z.object({

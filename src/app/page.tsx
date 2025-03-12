@@ -1,6 +1,6 @@
 'use client';
-import { TodoList } from '@/components';
-import { Header, ThemeSwitcher } from '@/shared/components';
+import { Header, TodoList } from './_components';
+import { ThemeSwitcher } from '@/shared/components';
 
 export default function Home() {
   return (

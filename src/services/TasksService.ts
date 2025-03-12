@@ -1,5 +1,5 @@
 import { NewTaskPayload, Pagination, Task, TaskCounts } from '@/types';
-import { APIEndpoints } from '@/utils';
+import { APIEndpoints } from '@/shared/utils';
 import { ServerAPI as api } from '.';
 import useStore from '@/store/useStore';
 

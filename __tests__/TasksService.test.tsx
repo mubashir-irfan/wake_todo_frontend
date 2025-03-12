@@ -4,7 +4,7 @@ import { Task, NewTaskPayload, Pagination, TaskCounts } from '@/types';
 const api = ServerAPI;
 
 import useStore from '@/store/useStore';
-import APIEndpoints from '@/utils/APIEndpoints';
+import APIEndpoints from '@/shared/utils/APIEndpoints';
 
 jest.mock('@/store/useStore', () => ({
   getState: jest.fn().mockReturnValue({

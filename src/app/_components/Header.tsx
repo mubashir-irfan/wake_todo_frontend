@@ -1,11 +1,11 @@
 'use client';
-import { TaskModal } from '@/components';
+import { TaskModal } from './';
 import useStore from '@/store/useStore';
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import { FaCheckDouble } from 'react-icons/fa';
 import { FaPlus } from 'react-icons/fa6';
-import { Button, CountBadge, Icon } from '.';
+import { Button, CountBadge, Icon } from '../../shared/components';
 
 const Header = () => {
   const t = useTranslations('HomePage');

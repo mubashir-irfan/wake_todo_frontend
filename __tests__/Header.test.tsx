@@ -1,4 +1,4 @@
-import Header from '@/shared/components/Header';
+import Header from '@/app/_components/Header';
 import useStore from '@/store/useStore';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
