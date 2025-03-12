@@ -86,11 +86,15 @@ const Pagination: React.FC<PaginationProps> = ({
     <ShadcnPagination>
       <PaginationContent>
         {currentPage === 1 ? (
-          <Button variant="outline" disabled>
+          <Button variant="outline" disabled data-testid="prev-button-disabled">
             {t('previous')}
           </Button>
         ) : (
-          <PaginationPrevious href="#" onClick={handlePrevClick}>
+          <PaginationPrevious
+            href="#"
+            onClick={handlePrevClick}
+            data-testid="prev-button"
+          >
             {t('previous')}
           </PaginationPrevious>
         )}
@@ -98,13 +102,13 @@ const Pagination: React.FC<PaginationProps> = ({
         {getPages().map((page, index) => {
           if (page === '...') {
             return (
-              <PaginationItem key={`ellipsis-${index}`}>
+              <PaginationItem key={`ellipsis-${index}`} data-testid="ellipsis">
                 <PaginationLink>...</PaginationLink>
               </PaginationItem>
             );
           }
           return (
-            <PaginationItem key={page}>
+            <PaginationItem key={page} data-testid={`page-${page}`}>
               <PaginationLink
                 href="#"
                 isActive={currentPage === page}
@@ -112,6 +116,7 @@ const Pagination: React.FC<PaginationProps> = ({
                   e.preventDefault();
                   onPageChange(+page);
                 }}
+                data-testid={`page-link-${page}`}
               >
                 {page}
               </PaginationLink>
@@ -120,11 +125,15 @@ const Pagination: React.FC<PaginationProps> = ({
         })}
 
         {currentPage === totalPages ? (
-          <Button variant="outline" disabled>
+          <Button variant="outline" disabled data-testid="next-button-disabled">
             {t('next')}
           </Button>
         ) : (
-          <PaginationNext href="#" onClick={handleNextClick}>
+          <PaginationNext
+            href="#"
+            onClick={handleNextClick}
+            data-testid="next-button"
+          >
             {t('next')}
           </PaginationNext>
         )}
