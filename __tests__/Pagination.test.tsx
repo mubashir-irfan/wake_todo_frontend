@@ -21,7 +21,7 @@ describe('Pagination Component', () => {
     jest.clearAllMocks();
   });
 
-  const renderPagination = (props = {}) =>
+  const renderPagination = (props = { currentPage: -1 }) =>
     render(
       <NextIntlClientProvider locale="en" messages={messages}>
         <Pagination {...defaultProps} {...props} />
