@@ -24,7 +24,7 @@ const Pagination: React.FC<PaginationProps> = ({
   onPageChange,
 }) => {
   const t = useTranslations('misc');
-  console.info('pagination', currentPage, totalPages);
+
   const getPages = () => {
     const pages = [];
     if (totalPages <= 7) {

@@ -5,7 +5,11 @@ import { useCallback, useEffect, useState } from 'react';
 import { TasksService } from '@/services';
 import useStore from '@/store/useStore';
 import { Pagination } from '@/shared/components';
-import { TodoListSkeleton, TodoListEmpty, TodoListError } from '@/shared/components/adhoc';
+import {
+  TodoListSkeleton,
+  TodoListEmpty,
+  TodoListError,
+} from '@/shared/components/adhoc';
 import { getCurrentDateTimeStamp } from '@/utils';
 import dayjs from 'dayjs';
 
@@ -77,10 +81,10 @@ const TodoList: React.FC = () => {
 
   if (isLoading) return <TodoListSkeleton />;
 
-  if (isErrorGettingList) return <TodoListError />
+  if (isErrorGettingList) return <TodoListError />;
 
   if (!tasks.length) return <TodoListEmpty />;
-  console.info('rendering list', currentPage, totalPages);
+
   return (
     <div className="flex flex-col gap-3">
       <div className="space-y-2 shadow-lg">
