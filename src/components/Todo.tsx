@@ -1,5 +1,4 @@
 import { Task } from "@/types";
-import { MouseEventHandler } from "react";
 import { FaCheckCircle, FaTrash } from "react-icons/fa";
 
 interface TodoProps {
