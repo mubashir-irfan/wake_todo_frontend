@@ -12,24 +12,29 @@ const messages = {
 
 describe('Pagination Component', () => {
   const onPageChange = jest.fn();
+  const defaultProps = {
+    onPageChange,
+    totalPages: 5,
+  };
 
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
-  test('should display the correct page numbers and pagination buttons', () => {
+  const renderPagination = (props = {}) =>
     render(
-      <NextIntlClientProvider locale='en' messages={messages}>
-        <Pagination currentPage={2} totalPages={5} onPageChange={onPageChange} />
+      <NextIntlClientProvider locale="en" messages={messages}>
+        <Pagination {...defaultProps} {...props} />
       </NextIntlClientProvider>
     );
 
+  test('should display the correct page numbers and pagination buttons', () => {
+    renderPagination({ currentPage: 2 });
+
     // Check if the page numbers are rendered
-    expect(screen.getByTestId('page-1')).toBeInTheDocument();
-    expect(screen.getByTestId('page-2')).toBeInTheDocument();
-    expect(screen.getByTestId('page-3')).toBeInTheDocument();
-    expect(screen.getByTestId('page-4')).toBeInTheDocument();
-    expect(screen.getByTestId('page-5')).toBeInTheDocument();
+    for (let i = 1; i <= 5; i++) {
+      expect(screen.getByTestId(`page-${i}`)).toBeInTheDocument();
+    }
 
     // Check if the previous button is clickable
     const prevButton = screen.getByTestId('prev-button');
@@ -45,11 +50,7 @@ describe('Pagination Component', () => {
   });
 
   test('should disable previous button on the first page', () => {
-    render(
-      <NextIntlClientProvider locale='en' messages={messages}>
-        <Pagination currentPage={1} totalPages={5} onPageChange={onPageChange} />
-      </NextIntlClientProvider>
-    );
+    renderPagination({ currentPage: 1 });
 
     const prevButton = screen.getByTestId('prev-button-disabled');
     expect(prevButton).toBeInTheDocument();
@@ -57,11 +58,7 @@ describe('Pagination Component', () => {
   });
 
   test('should disable next button on the last page', () => {
-    render(
-      <NextIntlClientProvider locale='en' messages={messages}>
-        <Pagination currentPage={5} totalPages={5} onPageChange={onPageChange} />
-      </NextIntlClientProvider>
-    );
+    renderPagination({ currentPage: 5 });
 
     const nextButton = screen.getByTestId('next-button-disabled');
     expect(nextButton).toBeInTheDocument();

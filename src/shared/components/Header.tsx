@@ -27,36 +27,52 @@ const Header = () => {
   }, [selectedTask]);
 
   return (
-    <header className="bg-background-light-secondary dark:bg-background-dark-secondary border-b border-border-light border-solid">
+    <header
+      className="bg-background-light-secondary dark:bg-background-dark-secondary border-b border-border-light border-solid"
+      data-testid="header"
+    >
       <div className="flex justify-between items-center p-4">
         <div className="flex gap-4 items-center">
           <Icon icon={<FaCheckDouble size={24} />} />
-          <p className="text-text-dark dark:text-text-light text-2xl font-bold">
+          <p
+            className="text-text-dark dark:text-text-light text-2xl font-bold"
+            data-testid="header-title"
+          >
             {t('title')}
           </p>
         </div>
         <div className="flex gap-lg">
-          <div className="flex gap-2 p-2 border-r border-solid border-border-light ">
+          <div
+            className="flex gap-2 p-2 border-r border-solid border-border-light"
+            data-testid="count-badge-container"
+          >
             <CountBadge
               count={uncompleted}
               textColor="text-white"
               bgColor="bg-purple-500"
               title={t('incomplete')}
+              data-testid="uncompleted-badge"
             />
             <CountBadge
               count={completed}
               textColor="text-black"
               bgColor="bg-green-500"
               title={t('completed')}
+              data-testid="completed-badge"
             />
             <CountBadge
               count={deleted}
               textColor="text-white"
               bgColor="bg-red-500"
               title={t('deleted')}
+              data-testid="deleted-badge"
             />
           </div>
-          <Button icon={<FaPlus size={16} />} onClick={onAddTask}>
+          <Button
+            icon={<FaPlus size={16} />}
+            onClick={onAddTask}
+            data-testid="add-task-button"
+          >
             {t('addTask')}
           </Button>
         </div>
@@ -66,6 +82,7 @@ const Header = () => {
         isOpen={isTaskModalOpen}
         onClose={onCloseTaskModal}
         task={selectedTask}
+        data-testid="task-modal"
       />
     </header>
   );
