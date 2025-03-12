@@ -11,11 +11,14 @@ const TodoListError: React.FC = () => {
         className="w-12 h-12 text-yellow-500" // Change color to yellow to indicate disconnection
         aria-hidden="true"
       />
-      <h2 className="text-xl font-semibold">
-        {t('serviceRestoring')}
-      </h2>
-      <p className="text-gray-500 dark:text-gray-400">{t('serviceRestoringDescription')}</p>
-      <p>[For Developers Only]: Please run the backend inside mock-backend folder :)</p>
+      <h2 className="text-xl font-semibold">{t('serviceRestoring')}</h2>
+      <p className="text-gray-500 dark:text-gray-400">
+        {t('serviceRestoringDescription')}
+      </p>
+      <p>
+        [For Developers Only]: Please run the backend inside mock-backend folder
+        :)
+      </p>
     </div>
   );
 };

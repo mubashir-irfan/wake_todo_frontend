@@ -42,10 +42,7 @@ const Header = () => {
           </p>
         </div>
         <div className="flex items-center gap-3">
-          <div
-            className="flex gap-2"
-            data-testid="count-badge-container"
-          >
+          <div className="flex gap-2" data-testid="count-badge-container">
             <CountBadge
               count={uncompleted}
               textColor="text-white"
@@ -68,7 +65,7 @@ const Header = () => {
               data-testid="deleted-badge"
             />
           </div>
-          <div className='w-[1px] h-4 bg-gray-300 dark:bg-gray-700' />
+          <div className="w-[1px] h-4 bg-gray-300 dark:bg-gray-700" />
           <Button
             icon={<FaPlus size={16} />}
             onClick={onAddTask}

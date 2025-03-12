@@ -104,8 +104,7 @@
   --bg-control-primary-hover: oklch(45% 0 2);
   --bg-control-secondary: oklch(100% 0 1);
   --text-control-secondary: oklch(0% 0 2);
-  --bg-control-secondary-hover: oklch(20% 0 1)
-    /*text-colors*/
+  --bg-control-secondary-hover: oklch(20% 0 1) /*text-colors*/
     --text-primary: oklch(0% 0 2);
 }
 
