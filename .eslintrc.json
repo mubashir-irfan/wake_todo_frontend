@@ -1,32 +1,102 @@
 {
-  "extends": ["airbnb", "airbnb/hooks", "airbnb-typescript", "prettier"],
-  "plugins": ["prettier", "react-hooks"],
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:prettier/recommended"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "jsx-a11y",
+    "import",
+    "prettier",
+    "@typescript-eslint"
+  ],
   "rules": {
+    // Prettier integration
     "prettier/prettier": "error",
-    "react/prop-types": "off",
-    "react/jsx-props-no-spreading": "off",
-    "react/react-in-jsx-scope": "off",
-    "import/extensions": "off",
-    "import/order": "off",
-    "react/function-component-definition": "off",
-    "react/self-closing-comp": "off",
-    "react/button-has-type": "off",
-    "object-shorthand": "off",
-    "arrow-body-style": "off",
-    "react/jsx-no-constructed-context-values": "off",
-    "react/no-array-index-key": "off",
-    "import/prefer-default-export": "off",
-    "import/no-cycle": "off",
-    "no-console": "off",
-    "@typescript-eslint/no-unused-vars": "off",
-    "@typescript-eslint/no-use-before-define": "off",
-    "lines-around-directive": "off",
-    "react/require-default-props": "off",
-    "@typescript-eslint/lines-between-class-members": "off", // Disable or configure as needed
-    "@typescript-eslint/no-throw-literal": "off"
+    // React rules
+    "react/prop-types": "off", // Turn off prop-types validation if using TypeScript
+    "react/react-in-jsx-scope": "off", // Next.js doesn't require React to be in scope
+    "react/jsx-uses-react": "off", // Since React 17 JSX doesn't need `React` import
+    // JSX Accessibility
+    "jsx-a11y/anchor-is-valid": "warn",
+    "jsx-a11y/click-events-have-key-events": "warn",
+    "jsx-a11y/label-has-associated-control": "warn",
+    // Import rules
+    "import/no-unresolved": "off",
+    "import/named": "error",
+    "import/default": "error",
+    "import/namespace": "error",
+    // General rules
+    "no-console": [
+      "warn",
+      {
+        "allow": ["info", "warn", "error"]
+      }
+    ], // Warn about console logs in the code
+    "no-debugger": "error", // Warn about debugger statements
+    // TypeScript-specific rules
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/explicit-module-boundary-types": "off", // Disable function return types if not needed
+    "@typescript-eslint/ban-ts-comment": "off", // Allow ts-ignore comments
+    "no-undef": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // Automatically detect the react version
+    }
   }
 }
+// {
+//   "extends": [
+//     "prettier"
+//   ],
+//   "plugins": [
+//     "prettier"
+//   ],
+//   "parser": "@typescript-eslint/parser",
+//   "parserOptions": {
+//     "project": "./tsconfig.json"
+//   },
+//   "rules": {
+//     "prettier/prettier": "error",
+//     "react/prop-types": "off",
+//     "react/jsx-props-no-spreading": "off",
+//     "react/react-in-jsx-scope": "off",
+//     "import/extensions": "off",
+//     "import/order": "off",
+//     "react/function-component-definition": "off",
+//     "react/self-closing-comp": "off",
+//     "react/button-has-type": "off",
+//     "object-shorthand": "off",
+//     "arrow-body-style": "off",
+//     "react/jsx-no-constructed-context-values": "off",
+//     "react/no-array-index-key": "off",
+//     "import/prefer-default-export": "off",
+//     "import/no-cycle": "off",
+//     "no-console": "off",
+//     "@typescript-eslint/no-use-before-define": "off",
+//     "lines-around-directive": "off",
+//     "react/require-default-props": "off",
+//     "@typescript-eslint/lines-between-class-members": "off",
+//     "@typescript-eslint/no-throw-literal": "off"
+//   }
+
+// }
