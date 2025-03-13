@@ -10,6 +10,8 @@ import { getCurrentDateTimeStamp } from '@/shared/utils';
 import useStore from '@/store/useStore';
 import { useTranslations } from 'next-intl';
 
+const MAX_TASK_NAME_LENGTH = 100;
+
 interface TaskModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -22,15 +24,20 @@ function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
   const [errorMsg, setErrorMsg] = useState<string>('');
   const isEditMode = !!task;
   const { setUpdatedAt } = useStore();
+  const [locale, setLocale] = useState<string>('');
+
+  useEffect(() => {
+    setLocale(document.documentElement.lang);
+  });
 
   const taskSchema = useMemo(() => {
     return z.object({
       text: z
         .string()
         .min(1, t('pleaseEnterTaskTitle'))
-        .max(100, t('taskTitleMaxLength')),
+        .max(MAX_TASK_NAME_LENGTH, t('taskTitleMaxLength')),
     });
-  }, []);
+  }, [locale]);
 
   useEffect(() => {
     if (task) {
@@ -85,7 +92,7 @@ function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
     } catch (error) {
       if (error instanceof z.ZodError) {
         // if we had multiple fields, we would have used a form structure for error messages
-        const errors = { ...error.errors };
+        const errors = [...error.errors];
         if (errors.length) {
           setErrorMsg(errors[0].message);
         }
@@ -123,7 +130,7 @@ function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
           value={text}
           onChange={(e) => setText(e.target.value)}
           className="w-full max-w-full overflow-hidden whitespace-pre-wrap break-words resize-vertical"
-          maxLength={250}
+          maxLength={MAX_TASK_NAME_LENGTH}
           placeholder={t('enterTaskTitle')}
         />
         {!!errorMsg && (

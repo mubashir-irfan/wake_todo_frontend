@@ -1,4 +1,5 @@
 import { Task } from '@/types';
+import { useEffect, useRef } from 'react';
 import { FaCheckCircle, FaTrash } from 'react-icons/fa';
 
 interface TodoProps {
@@ -24,6 +25,29 @@ const Todo: React.FC<TodoProps> = ({
     onMarkIncomplete(task.id);
   };
 
+  // Long Press Logic to allow editing on touch devices
+  const longPressTimer = useRef<NodeJS.Timeout | null>(null);
+
+  const handleTouchStart = () => {
+    longPressTimer.current = setTimeout(() => {
+      onDoubleClick(task);
+    }, 250);
+  };
+
+  const handleTouchEnd = () => {
+    if (longPressTimer.current) {
+      clearTimeout(longPressTimer.current);
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (longPressTimer.current) {
+        clearTimeout(longPressTimer.current);
+      }
+    };
+  }, []);
+
   return (
     <div className="flex items-center justify-between p-3 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800">
       <button
@@ -36,6 +60,9 @@ const Todo: React.FC<TodoProps> = ({
       <span
         className={`flex-1 mx-3 ${task.completed ? 'line-through' : ''}`}
         onDoubleClick={() => onDoubleClick(task)}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        onTouchCancel={handleTouchEnd}
       >
         {task.text}
       </span>

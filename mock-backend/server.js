@@ -26,7 +26,7 @@ const updateCounts = () => {
   const deleted = db.tasks.filter((task) => task.deleted).length;
 
   db.counts = { uncompleted, completed, deleted };
-  console.log('updating counts', { uncompleted, completed, deleted })
+  console.info('updating counts', { uncompleted, completed, deleted })
   router.db.setState(db)
   fs.writeFileSync(dbFilePath, JSON.stringify(db, null, 2), "utf-8");
 };

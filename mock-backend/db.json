@@ -66,7 +66,7 @@
     {
       "id": 10,
       "text": "Deploy updated website design to production",
-      "completed": false,
+      "completed": true,
       "deleted": false,
       "createdAt": "2025-02-04T01:00:00Z"
     },
@@ -107,8 +107,8 @@
     }
   ],
   "counts": {
-    "uncompleted": 12,
-    "completed": 3,
+    "uncompleted": 11,
+    "completed": 4,
     "deleted": 0
   }
 }
