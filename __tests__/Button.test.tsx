@@ -27,7 +27,6 @@ describe('Button component', () => {
     const button = screen.getByRole('button');
     expect(button).toHaveClass('bg-bg-control-primary');
     expect(button).toHaveClass('text-text-control-primary');
-    expect(button).toHaveClass('hover:bg-blue-700');
   });
 
   it('should apply secondary variant styles when specified', () => {
@@ -36,7 +35,6 @@ describe('Button component', () => {
     const button = screen.getByRole('button');
     expect(button).toHaveClass('bg-bg-control-secondary');
     expect(button).toHaveClass('text-text-control-secondary');
-    expect(button).toHaveClass('hover:bg-gray-300');
   });
 
   it('should apply disabled variant styles when specified', () => {

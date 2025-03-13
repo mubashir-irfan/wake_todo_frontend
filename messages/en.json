@@ -17,5 +17,10 @@
     "pageOf": "Page {currentPage} of {totalPages}",
     "serviceRestoring": "Service is down",
     "serviceRestoringDescription": "We are working to restore the service as quickly as possible"
+  },
+  "LocaleSwitcher": {
+    "ar": "العربية",
+    "en": "English",
+    "label": "Language"
   }
 }

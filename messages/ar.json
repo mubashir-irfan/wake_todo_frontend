@@ -18,5 +18,10 @@
     "pageOf": "صفحة  {currentPage} من {totalPages}",
     "serviceRestoring": "الخدمة خارجة عن الخدمة",
     "serviceRestoringDescription": "نعمل جاهدين على إعادة الخدمة في أقرب وقت"
+  },
+  "LocaleSwitcher": {
+    "ar": "العربية",
+    "en": "English",
+    "label": "لغة"
   }
 }

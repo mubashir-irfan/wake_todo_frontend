@@ -1,4 +1,5 @@
 'use client';
+import LocaleSwitcher from '@/shared/components/LocaleSwitcher';
 import { Header, TodoList } from './_components';
 import { ThemeSwitcher } from '@/shared/components';
 
@@ -13,8 +14,9 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <footer className="flex gap-6 flex-wrap items-center justify-center">
+      <footer className="flex gap-6 flex-wrap items-center justify-center py-4">
         <ThemeSwitcher />
+        <LocaleSwitcher />
       </footer>
     </div>
   );
