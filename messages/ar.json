@@ -6,11 +6,15 @@
     "completed": "مكتملة",
     "deleted": "محذوفة",
     "save": "حفظ",
-    "cancel": "إلغاء",
-    "editTask": "تعديل مهمة",
     "noTasks": "لم يتم العثور على مهام",
     "noTasksFound": "صفحتك فارغة! لنملأها بالإنجازات",
-    "addSomeTasksPrompt": "هل أنت مستعد لإنجاز الأمور؟ هيا بنا نضيف بعض المهام"
+    "addSomeTasksPrompt": "هل أنت مستعد لإنجاز الأمور؟ هيا بنا نضيف بعض المهام",
+    "editTask": "تعديل مهمة",
+    "updateTask": "تحديث مهمة",
+    "cancel": "إلغاء",
+    "enterTaskTitle": "أدخل عنوان المهمة هنا",
+    "pleaseEnterTaskTitle": "يرجى إدخال عنوان المهمة",
+    "taskTitleMaxLength": "لا يمكن أن يتجاوز عنوان المهمة 100 حرف"
   },
   "misc": {
     "next": "التالي",

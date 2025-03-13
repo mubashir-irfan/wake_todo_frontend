@@ -6,10 +6,14 @@
     "completed": "Completed",
     "deleted": "Deleted",
     "save": "Save",
-    "cancel": "Cancel",
-    "editTask": "Edit Task",
     "noTasksFound": "Your page is empty! Let's fill it with achievements!",
-    "addSomeTasksPrompt": "Ready to get things done? Let's add some tasks!"
+    "addSomeTasksPrompt": "Ready to get things done? Let's add some tasks!",
+    "editTask": "Edit task",
+    "updateTask": "Update task",
+    "cancel": "Cancel",
+    "enterTaskTitle": "Enter task title here",
+    "pleaseEnterTaskTitle": "Please enter task title",
+    "taskTitleMaxLength": "Task title can not exceed 100 characters"
   },
   "misc": {
     "next": "Next",

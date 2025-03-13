@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Textarea } from '@/components/ui/textarea';
 import { NewTaskPayload, Task } from '@/types';
 import { Button, Modal } from '@/shared/components';
@@ -8,13 +8,7 @@ import { z } from 'zod';
 import { TasksService } from '@/services';
 import { getCurrentDateTimeStamp } from '@/shared/utils';
 import useStore from '@/store/useStore';
-
-const taskSchema = z.object({
-  text: z
-    .string()
-    .min(1, 'Task text is required')
-    .max(100, 'Max characters 100'),
-});
+import { useTranslations } from 'next-intl';
 
 interface TaskModalProps {
   isOpen: boolean;
@@ -23,10 +17,20 @@ interface TaskModalProps {
 }
 
 function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
+  const t = useTranslations('HomePage');
   const [text, setText] = useState('');
   const [errorMsg, setErrorMsg] = useState<string>('');
   const isEditMode = !!task;
   const { setUpdatedAt } = useStore();
+
+  const taskSchema = useMemo(() => {
+    return z.object({
+      text: z
+        .string()
+        .min(1, t('pleaseEnterTaskTitle'))
+        .max(100, t('taskTitleMaxLength')),
+    });
+  }, []);
 
   useEffect(() => {
     if (task) {
@@ -100,17 +104,17 @@ function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
 
   return (
     <Modal
-      title={isEditMode ? 'Edit Task' : 'Add Task'}
+      title={isEditMode ? t('editTask') : t('addTask')}
       isOpen={isOpen}
       onClose={onModalClose}
       primaryButton={
         <Button variant="primary" onClick={onSubmit}>
-          {isEditMode ? 'Update Task' : 'Add Task'}
+          {isEditMode ? t('updateTask') : t('addTask')}
         </Button>
       }
       secondaryButton={
         <Button type="button" variant="secondary" onClick={onModalClose}>
-          Cancel
+          {t('cancel')}
         </Button>
       }
     >
@@ -120,7 +124,7 @@ function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
           onChange={(e) => setText(e.target.value)}
           className="w-full max-w-full overflow-hidden whitespace-pre-wrap break-words resize-vertical"
           maxLength={250}
-          placeholder="Enter task name here..."
+          placeholder={t('enterTaskTitle')}
         />
         {!!errorMsg && (
           <p className="w-full text-red-700 text-sm">{errorMsg}</p>
