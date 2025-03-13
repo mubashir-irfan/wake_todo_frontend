@@ -1,11 +1,11 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import ThemeSwitcher from '@/shared/components/ThemeSwitcher';
-import { useTheme } from '@/shared/hooks';
+import { useTheme } from '@/hooks';
 import '@testing-library/jest-dom';
 
 // Mock the useTheme hook
-jest.mock('@/shared/hooks', () => ({
+jest.mock('@/hooks', () => ({
   useTheme: jest.fn(),
 }));
 

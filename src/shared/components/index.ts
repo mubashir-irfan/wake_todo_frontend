@@ -5,3 +5,4 @@ export { default as Modal } from './Modal';
 export { default as Pagination } from './Pagination';
 export { default as ToolTip } from './Tooltip';
 export { default as ThemeSwitcher } from './ThemeSwitcher';
+export { default as LocaleSwitcher } from './LocaleSwitcher';
